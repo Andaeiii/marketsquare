@@ -64,17 +64,51 @@
 			                    </select>
 			                  </div>
 
-			                  
+			                   <!-- Date dd/mm/yyyy -->
+			                  <div class="form-group">
+			                    <label>Product Description</label>
+			                    <textarea class="form-control" style="width:100% !important" rows="5"></textarea>
+			                  </div><!-- /.form group -->
 
 			                   <!-- IP mask -->
 			                  <div class="form-group">
-			                    <label>Quoted Price</label>
-			                    <div class="input-group">
-			                      <div class="input-group-addon">
-			                       &#8358;
-			                      </div>
-			                      <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
-			                    </div><!-- /.input group -->
+			                  	<div class="row">
+			                  		<div class="col-md-6">					                  			
+					                    <label>Quoted Price</label>
+					                    <div class="input-group">
+					                      <div class="input-group-addon">&#8358;</div>
+					                      <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+					                    </div><!-- /.input group -->
+			                  		</div>
+			                  		<div class="col-md-6">					                  			
+					                    <label>Quoted Price</label>
+					                    <div class="input-group">
+					                      <div class="input-group-addon">&#8358;</div>
+					                      <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+					                    </div><!-- /.input group -->			                  			
+			                  		</div>
+			                  	</div>
+			                  </div><!-- /.form group -->
+
+
+			                   <!-- IP mask -->
+			                  <div class="form-group">
+			                  	<div class="row">
+			                  		<div class="col-md-6">					                  			
+					                    <label>Amount in Stock</label>
+					                    <div class="input-group">
+					                      <div class="input-group-addon">&#8358;</div>
+					                      <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+					                    </div><!-- /.input group -->
+			                  		</div>
+			                  		<div class="col-md-6">					                  			
+					                    <label>Quoted Price</label>
+					                    <div class="input-group">
+					                      <div class="input-group-addon">&#8358;</div>
+					                      <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+					                    </div><!-- /.input group -->			                  			
+			                  		</div>
+			                  	</div>
 			                  </div><!-- /.form group -->
 
 

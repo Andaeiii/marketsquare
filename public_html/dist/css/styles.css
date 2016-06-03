@@ -3,3 +3,5 @@ hr {
     margin-bottom: 10px;
     border: 1px solid #D6D9DC important;
 }
+
+.has-error{border-right:solid 2px #ff0000;}

@@ -53,7 +53,8 @@ Route::get('/client/products/new', array('as'=>'new_product', 'uses'=>'ItemsCont
 Route::get('/client/products/all', array('as'=>'all_items', 'uses'=>'ItemsController@allitems'));
 
 Route::get('/client/category/new', array('as'=>'new_category', 'uses'=>'ItemsController@newcategory'));
-Route::get('/client/category/all', array('as'=>'all_categorys', 'uses'=>'ItemsController@allcategorys'));
+Route::post('/client/category/add', array('as'=>'addcategory', 'uses'=>'ItemsController@addcategory'));
+Route::get('/client/category/{id}/del', 'ItemsController@delcategory')->where('id', '\d+');
 
 Route::get('/client/messages', array('as'=>'new_category', 'uses'=>'UserController@messages'));
 Route::get('/client/reports', array('as'=>'all_categorys', 'uses'=>'UserController@reports'));
