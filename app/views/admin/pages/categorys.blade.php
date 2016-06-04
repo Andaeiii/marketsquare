@@ -73,7 +73,7 @@
             		</div>
 
             		<div class="col-md-3 br_lft">
-adfadsfasfasd
+                            <div class="spinner"><i class="fa fa-refresh fa-spin"></i></div>
             		</div>
 
 

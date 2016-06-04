@@ -12,6 +12,7 @@
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
+
             <li class="header">MAIN NAVIGATION</li>
             
 
@@ -49,19 +50,20 @@
             </li>
 
 
-            
+            @if(Auth::user()->type == 'admin')
 
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-table"></i> <span>Tables</span>
+                <i class="fa fa-table"></i> <span>Registered Clients</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="/tables"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-                <li><a href="/tables"><i class="fa fa-circle-o"></i> Data tables</a></li>
+                <li><a href="/client/new"><i class="fa fa-circle-o"></i> Add Clients</a></li>
+                <li><a href="/client/all"><i class="fa fa-circle-o"></i> All Clients</a></li>
               </ul>
             </li>
 
+            @endif
 
             <li>
               <a href="client/messages">

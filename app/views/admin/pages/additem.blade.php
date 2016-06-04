@@ -36,182 +36,101 @@
 
             </div>
 
+            {{ Form::open(array('url' => 'client/products/add', 'files'=>true)) }}
 
-            <div class="col-md-9">		<!--column starts here... -->
+		            <div class="col-md-9">		<!--column starts here... -->
 
-            	<div class="row">
-
-
-            		<div class="col-md-7">
+		            	<div class="row">
 
 
-			                  <!-- Date dd/mm/yyyy -->
-			                  <div class="form-group">
-			                    <label>Name Of Product</label>
-			                    <input type="text" class="form-control" style="width:100% !important;" />
-			                  </div><!-- /.form group -->
+		            		<div class="col-md-7">
 
-			                  <div class="form-group">
-			                    <label>Product Category(According to MAN)</label>
-			                    <select class="form-control select2 select2-hidden-accessible" name="prod_cat" style="width: 100%;"  >
-			                    	<option>Select Category..... </option>
-				                    @foreach($cats as $c)
-				                    	<option value="{{$c->id}}">{{$c->name}}</option>
-				                    @endforeach
-			                    </select>
-			                  </div>
 
-			                   <!-- Date dd/mm/yyyy -->
-			                  <div class="form-group">
-			                    <label>Product Description</label>
-			                    <textarea class="form-control" style="width:100% !important" rows="5"></textarea>
-			                  </div><!-- /.form group -->
+					                  <!-- Date dd/mm/yyyy -->
+					                  <div class="form-group">
+					                    <label>Name Of Product</label>
+					                    <input type="text" class="form-control" style="width:100% !important;" />
+					                  </div><!-- /.form group -->
 
-			                   <!-- IP mask -->
-			                  <div class="form-group">
-			                  	<div class="row">
-			                  		<div class="col-md-6">					                  			
-					                    <label>Quoted Price</label>
+					                  <div class="form-group">
+					                    <label>Product Category(According to MAN)</label>
+					                    <select class="form-control select2 select2-hidden-accessible" name="prod_cat" style="width: 100%;"  >
+					                    	<option>Select Category..... </option>
+						                    @foreach($cats as $c)
+						                    	<option value="{{$c->id}}">{{$c->name}}</option>
+						                    @endforeach
+					                    </select>
+					                  </div>
+
+					                   <!-- Date dd/mm/yyyy -->
+					                  <div class="form-group">
+					                    <label>Product Description</label>
+					                    <textarea class="form-control" name="prod_desc" style="width:100% !important" rows="5"></textarea>
+					                  </div><!-- /.form group -->
+    
+
+
+
+									
+
+
+		            		</div>
+
+		            		<div class="col-md-5">
+
+					                   <!-- IP mask -->
+					                  <div class="form-group">
+					                  	<div class="row">
+					                  		<div class="col-md-6">					                  			
+							                    <label>Quoted Price</label>
+							                    <div class="input-group">
+							                      <div class="input-group-addon">&#8358;</div>
+							                      <input type="text" name="qprice" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+							                    </div><!-- /.input group -->
+					                  		</div>
+					                  		<div class="col-md-6">					                  			
+							                    <label>Selling Price</label>
+							                    <div class="input-group">
+							                      <div class="input-group-addon">&#8358;</div>
+							                      <input type="text" name="sprice" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+							                    </div><!-- /.input group -->			                  			
+					                  		</div>
+					                  	</div>
+					                  </div><!-- /.form group -->
+
+					                  <!-- Date dd/mm/yyyy -->
+					                 
+					                    <div class="form-group">
+					                      <label for="exampleInputFile">Select Product Images</label>
+					                      
+					                      {{Form::file('files[]', array('multiple'=>true)) }} <br/>
+					                      {{Form::file('files[]', array('multiple'=>true)) }} <br/>
+					                      {{Form::file('files[]', array('multiple'=>true)) }} <br/>
+					                      
+					                    </div>
+
+
+					                  <!-- IP mask 
+					                  <div class="form-group">
+					                    <label>IP mask:</label>
 					                    <div class="input-group">
-					                      <div class="input-group-addon">&#8358;</div>
+					                      <div class="input-group-addon">
+					                        <i class="fa fa-laptop"></i>
+					                      </div>
 					                      <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
-					                    </div><!-- /.input group -->
-			                  		</div>
-			                  		<div class="col-md-6">					                  			
-					                    <label>Quoted Price</label>
-					                    <div class="input-group">
-					                      <div class="input-group-addon">&#8358;</div>
-					                      <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
-					                    </div><!-- /.input group -->			                  			
-			                  		</div>
-			                  	</div>
-			                  </div><!-- /.form group -->
-
-
-			                  
+					                    </div>
+					                  </div>  -->
 
 
 
-							 <div class="form-group">
-			                    <label>Minimal</label>
-			                    <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-			                      <option>Alabama</option>
-			                      <option>Alaska</option>
-			                      <option>California</option>
-			                      <option>Delaware</option>
-			                      <option>Tennessee</option>
-			                      <option>Texas</option>
-			                      <option>Washington</option>
-			                    </select>
-			                  </div>
+		            		</div>
 
 
+		            	</div>
 
+		            </div><!-- /.column ends eh -->
 
-
-
-			                  <!-- IP mask -->
-			                  <div class="form-group">
-			                    <label>IP mask:</label>
-			                    <div class="input-group">
-			                      <div class="input-group-addon">
-			                        <i class="fa fa-laptop"></i>
-			                      </div>
-			                      <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
-			                    </div><!-- /.input group -->
-			                  </div><!-- /.form group -->
-
-
-
-            		</div>
-
-            		<div class="col-md-5">
-
-
-            				   <!-- IP mask -->
-			                  <div class="form-group">
-			                  	<div class="row">
-			                  		<div class="col-md-6">					                  			
-					                    <label>Quoted Price</label>
-					                    <div class="input-group">
-					                      <div class="input-group-addon">&#8358;</div>
-					                      <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
-					                    </div><!-- /.input group -->
-			                  		</div>
-			                  		<div class="col-md-6">					                  			
-					                    <label>Selling Price</label>
-					                    <div class="input-group">
-					                      <div class="input-group-addon">&#8358;</div>
-					                      <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
-					                    </div><!-- /.input group -->			                  			
-			                  		</div>
-			                  	</div>
-			                  </div><!-- /.form group -->
-
-
-			                  <!-- Date dd/mm/yyyy -->
-			                  <div class="form-group">
-			                    <label>Date masks:</label>
-			                    <div class="input-group">
-			                      <div class="input-group-addon">
-			                        <i class="fa fa-calendar"></i>
-			                      </div>
-			                      <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
-			                    </div><!-- /.input group -->
-			                  </div><!-- /.form group -->
-
-			                  <!-- Date mm/dd/yyyy -->
-			                  <div class="form-group">
-			                    <div class="input-group">
-			                      <div class="input-group-addon">
-			                        <i class="fa fa-calendar"></i>
-			                      </div>
-			                      <input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
-			                    </div><!-- /.input group -->
-			                  </div><!-- /.form group -->
-
-			                  <!-- phone mask -->
-			                  <div class="form-group">
-			                    <label>US phone mask:</label>
-			                    <div class="input-group">
-			                      <div class="input-group-addon">
-			                        <i class="fa fa-phone"></i>
-			                      </div>
-			                      <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
-			                    </div><!-- /.input group -->
-			                  </div><!-- /.form group -->
-
-			                  <!-- phone mask -->
-			                  <div class="form-group">
-			                    <label>Intl US phone mask:</label>
-			                    <div class="input-group">
-			                      <div class="input-group-addon">
-			                        <i class="fa fa-phone"></i>
-			                      </div>
-			                      <input type="text" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask>
-			                    </div><!-- /.input group -->
-			                  </div><!-- /.form group -->
-
-			                  <!-- IP mask -->
-			                  <div class="form-group">
-			                    <label>IP mask:</label>
-			                    <div class="input-group">
-			                      <div class="input-group-addon">
-			                        <i class="fa fa-laptop"></i>
-			                      </div>
-			                      <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
-			                    </div><!-- /.input group -->
-			                  </div><!-- /.form group -->
-
-
-
-            		</div>
-
-
-            	</div>
-
-            </div><!-- /.column ends eh -->
-
+            {{ Form::close() }}
 
 
           </div><!-- /.row -->

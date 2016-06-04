@@ -47,16 +47,21 @@ Route::get('logout', array('as'=>'logout', 'uses'=>'AdminController@logout'));
 
 //Administrative links.... 
 
-Route::get('/client/profile/edit', array('as'=>'edit_profile', 'uses'=>'UserController@editprofile'));
+//routes that require auth.... 
+Route::group(array('before'=>'auth'), function(){
 
-Route::get('/client/products/new', array('as'=>'new_product', 'uses'=>'ItemsController@newitem'));
-Route::get('/client/products/all', array('as'=>'all_items', 'uses'=>'ItemsController@allitems'));
+	Route::get('/client/profile/edit', array('as'=>'edit_profile', 'uses'=>'UserController@editprofile'));
 
-Route::get('/client/category/new', array('as'=>'new_category', 'uses'=>'ItemsController@newcategory'));
-Route::post('/client/category/add', array('as'=>'addcategory', 'uses'=>'ItemsController@addcategory'));
-Route::get('/client/category/{id}/del', 'ItemsController@delcategory')->where('id', '\d+');
+	Route::get('/client/products/new', array('as'=>'new_product', 'uses'=>'ItemsController@newitem'));
+	Route::get('/client/products/all', array('as'=>'all_items', 'uses'=>'ItemsController@allitems'));
 
-Route::get('/client/messages', array('as'=>'new_category', 'uses'=>'UserController@messages'));
-Route::get('/client/reports', array('as'=>'all_categorys', 'uses'=>'UserController@reports'));
+	Route::get('/client/category/new', array('as'=>'new_category', 'uses'=>'ItemsController@newcategory'));
+	Route::post('/client/category/add', array('as'=>'addcategory', 'uses'=>'ItemsController@addcategory'));
+	Route::get('/client/category/{id}/del', 'ItemsController@delcategory')->where('id', '\d+');
 
-Route::get('/client/stats', array('as'=>'your_stats', 'uses'=>'UserController@stats'));
+	Route::get('/client/messages', array('as'=>'new_category', 'uses'=>'UserController@messages'));
+	Route::get('/client/reports', array('as'=>'all_categorys', 'uses'=>'UserController@reports'));
+
+	Route::get('/client/stats', array('as'=>'your_stats', 'uses'=>'UserController@stats'));
+
+});
