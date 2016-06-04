@@ -66,7 +66,7 @@
             @endif
 
             <li>
-              <a href="client/messages">
+              <a href="/client/messages">
                 <i class="fa fa-envelope"></i> <span>Messages</span>
                 <small class="label pull-right bg-yellow">12</small>
               </a>
@@ -74,14 +74,14 @@
 
            
             <li>
-              <a href="client/reports">
+              <a href="/client/reports">
                 <i class="fa fa-sticky-note-o"></i> <span>Reports</span>
               </a>
             </li>
 
            
             <li>
-              <a href="client/stats">
+              <a href="/client/stats">
                 <i class="fa fa-bar-chart"></i> <span>Statistics</span>
               </a>
             </li>

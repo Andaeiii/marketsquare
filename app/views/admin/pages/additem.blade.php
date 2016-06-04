@@ -49,7 +49,7 @@
 					                  <!-- Date dd/mm/yyyy -->
 					                  <div class="form-group">
 					                    <label>Name Of Product</label>
-					                    <input type="text" class="form-control" style="width:100% !important;" />
+					                    <input type="text" class="form-control" name="prod_name" style="width:100% !important;" />
 					                  </div><!-- /.form group -->
 
 					                  <div class="form-group">
@@ -65,7 +65,7 @@
 					                   <!-- Date dd/mm/yyyy -->
 					                  <div class="form-group">
 					                    <label>Product Description</label>
-					                    <textarea class="form-control" name="prod_desc" style="width:100% !important" rows="5"></textarea>
+					                    <textarea id="editor1" class="form-control" name="prod_desc" style="width:100% !important" rows="5"></textarea>
 					                  </div><!-- /.form group -->
     
 
@@ -77,6 +77,16 @@
 		            		</div>
 
 		            		<div class="col-md-5">
+
+		            			<div class="form-group">
+				                    <label>Total Amounts Available</label>
+				                    <select class="form-control select2 select2-hidden-accessible" name="prod_count" style="width: 100%;"  >
+				                    	<option>Select amount needed..... </option>
+					                    @for($i=0;$i<=200;$i++)
+					                    	<option value="{{$i}}">{{$i}}</option>
+					                    @endfor
+				                    </select>
+				                  </div>
 
 					                   <!-- IP mask -->
 					                  <div class="form-group">
@@ -109,6 +119,7 @@
 					                      
 					                    </div>
 
+					                     <button type="submit" class="btn btn-primary">Submit</button>
 
 					                  <!-- IP mask 
 					                  <div class="form-group">
@@ -141,3 +152,5 @@
 
 
 @stop
+
+

@@ -17,15 +17,15 @@ class UserController extends BaseController {
 
 
 	public function messages(){
-		return 'your messages';
+		return View::make('admin.pages.messages');
 	}
 
 	public function reports(){
-		return 'your reports';
+		return View::make('admin.pages.reports');
 	}
 
 	public function stats(){
-		return 'your stats';
+		return View::make('admin.pages.charts');
 	}
 
 }

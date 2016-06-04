@@ -24,6 +24,41 @@ class ItemsController extends BaseController {
 		return 'all items';
 	}
 
+	public function createItem(){
+		pr(Input::all());	
+
+		//if Validation passes..... 
+		$v = Product::validate(Input::all());
+		if($v->fails()){
+			return Redirect::back()->withErrors($v)->withInput();
+		}else{
+			
+			//upload the files to the database.... 
+			$count = 1;		
+			$files = Input::file('files');
+			$upl = array();
+		    foreach($files as $fl) {
+		    	if(!is_null($fl)){
+		    		$ext = $fl->guessClientExtension();
+			    	$xname = str_replace('','_',Auth::user()->username).'_'.time().'_'.$count.'.'.$ext;
+			        $fl->move('uploads/', $xname);
+			        echo 'uploaded...';
+			        $count++;
+			        array_push($upl, $xname);
+		    	}		    	
+		    }
+
+		    $txar = serialize($upl);		//prepare to upload... 
+
+
+		   // echo $txar;
+
+		    //prepare the text... 
+		    $str = htmlentities(Input::get('prod_desc'), ENT_QUOTES);	//text from the editor... 
+		    echo $str;
+		}
+	}
+
 
 	//handle categories here.... 
 
