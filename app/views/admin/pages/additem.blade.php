@@ -30,19 +30,19 @@
           <div class="row">
             <!-- Left col -->
 
-            <div class="col-md-4">
+            <div class="col-md-3">
 
 
 
             </div>
 
 
-            <div class="col-md-8">		<!--column starts here... -->
+            <div class="col-md-9">		<!--column starts here... -->
 
             	<div class="row">
 
 
-            		<div class="col-md-6">
+            		<div class="col-md-7">
 
 
 			                  <!-- Date dd/mm/yyyy -->
@@ -54,13 +54,10 @@
 			                  <div class="form-group">
 			                    <label>Product Category(According to MAN)</label>
 			                    <select class="form-control select2 select2-hidden-accessible" name="prod_cat" style="width: 100%;"  >
-			                      <option>Alabama</option>
-			                      <option>Alaska</option>
-			                      <option>California</option>
-			                      <option>Delaware</option>
-			                      <option>Tennessee</option>
-			                      <option>Texas</option>
-			                      <option>Washington</option>
+			                    	<option>Select Category..... </option>
+				                    @foreach($cats as $c)
+				                    	<option value="{{$c->id}}">{{$c->name}}</option>
+				                    @endforeach
 			                    </select>
 			                  </div>
 
@@ -91,25 +88,7 @@
 			                  </div><!-- /.form group -->
 
 
-			                   <!-- IP mask -->
-			                  <div class="form-group">
-			                  	<div class="row">
-			                  		<div class="col-md-6">					                  			
-					                    <label>Amount in Stock</label>
-					                    <div class="input-group">
-					                      <div class="input-group-addon">&#8358;</div>
-					                      <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
-					                    </div><!-- /.input group -->
-			                  		</div>
-			                  		<div class="col-md-6">					                  			
-					                    <label>Quoted Price</label>
-					                    <div class="input-group">
-					                      <div class="input-group-addon">&#8358;</div>
-					                      <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
-					                    </div><!-- /.input group -->			                  			
-			                  		</div>
-			                  	</div>
-			                  </div><!-- /.form group -->
+			                  
 
 
 
@@ -146,8 +125,28 @@
 
             		</div>
 
-            		<div class="col-md-6">
+            		<div class="col-md-5">
 
+
+            				   <!-- IP mask -->
+			                  <div class="form-group">
+			                  	<div class="row">
+			                  		<div class="col-md-6">					                  			
+					                    <label>Quoted Price</label>
+					                    <div class="input-group">
+					                      <div class="input-group-addon">&#8358;</div>
+					                      <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+					                    </div><!-- /.input group -->
+			                  		</div>
+			                  		<div class="col-md-6">					                  			
+					                    <label>Selling Price</label>
+					                    <div class="input-group">
+					                      <div class="input-group-addon">&#8358;</div>
+					                      <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+					                    </div><!-- /.input group -->			                  			
+			                  		</div>
+			                  	</div>
+			                  </div><!-- /.form group -->
 
 
 			                  <!-- Date dd/mm/yyyy -->

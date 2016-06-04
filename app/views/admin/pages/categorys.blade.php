@@ -34,7 +34,7 @@
             <div class="col-md-12">		<!--column starts here... -->
 
             	<div class="row">
-            		<div class="col-md-4">
+            		<div class="col-md-3">
             			
             				{{Form::open(array('url'=>'client/category/add'))}}
 
@@ -62,7 +62,7 @@
 
             		</div>
 
-            		<div class="col-md-4 prvcats">
+            		<div class="col-md-5 prvcats">
             				Available Categories Based On MAN Nigeria
             				<hr/>
             				<ul>
@@ -99,4 +99,5 @@ adfadsfasfasd
 <style type="text/css">
 .br_lft{background-color:#ffffff; padding:10px;}
 .prvcats li a{text-transform: capitalize;}
+.prvcats ul{margin-left:10px !important; padding-left:0px !important;}
 </style>

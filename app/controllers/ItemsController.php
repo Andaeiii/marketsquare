@@ -16,7 +16,8 @@ class ItemsController extends BaseController {
 	*/
 
 	public function newItem(){
-		return View::make('admin.pages.additem');
+		return View::make('admin.pages.additem')
+				->with('cats', Category::all());
 	}
 
 	public function allItems(){
