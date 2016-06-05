@@ -48,12 +48,12 @@
 
 					                  <!-- Date dd/mm/yyyy -->
 					                  <div class="form-group">
-					                    <label>Name Of Product</label>
+					                    <label>Name Of Product*</label>
 					                    <input type="text" class="form-control" name="prod_name" style="width:100% !important;" />
 					                  </div><!-- /.form group -->
 
 					                  <div class="form-group">
-					                    <label>Product Category(According to MAN)</label>
+					                    <label>Product Category(According to MAN)*</label>
 					                    <select class="form-control select2 select2-hidden-accessible" name="prod_cat" style="width: 100%;"  >
 					                    	<option>Select Category..... </option>
 						                    @foreach($cats as $c)
@@ -64,7 +64,7 @@
 
 					                   <!-- Date dd/mm/yyyy -->
 					                  <div class="form-group">
-					                    <label>Product Description</label>
+					                    <label>Product Description *</label>
 					                    <textarea id="editor1" class="form-control" name="prod_desc" style="width:100% !important" rows="5"></textarea>
 					                  </div><!-- /.form group -->
     
@@ -79,7 +79,7 @@
 		            		<div class="col-md-5">
 
 		            			<div class="form-group">
-				                    <label>Total Amounts Available</label>
+				                    <label>Total Amounts Available *</label>
 				                    <select class="form-control select2 select2-hidden-accessible" name="prod_count" style="width: 100%;"  >
 				                    	<option>Select amount needed..... </option>
 					                    @for($i=0;$i<=200;$i++)
@@ -92,14 +92,14 @@
 					                  <div class="form-group">
 					                  	<div class="row">
 					                  		<div class="col-md-6">					                  			
-							                    <label>Quoted Price</label>
+							                    <label>Quoted Price *</label>
 							                    <div class="input-group">
 							                      <div class="input-group-addon">&#8358;</div>
 							                      <input type="text" name="qprice" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
 							                    </div><!-- /.input group -->
 					                  		</div>
 					                  		<div class="col-md-6">					                  			
-							                    <label>Selling Price</label>
+							                    <label>Selling Price *</label>
 							                    <div class="input-group">
 							                      <div class="input-group-addon">&#8358;</div>
 							                      <input type="text" name="sprice" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
@@ -111,7 +111,12 @@
 					                  <!-- Date dd/mm/yyyy -->
 					                 
 					                    <div class="form-group">
-					                      <label for="exampleInputFile">Select Product Images</label>
+					                      <label for="exampleInputFile">
+						                      Select Product Images<br/>
+						                      <small>* select at least one image</small>
+					                      </label>
+					                      <br/>
+					                      <br/>
 					                      
 					                      {{Form::file('files[]', array('multiple'=>true)) }} <br/>
 					                      {{Form::file('files[]', array('multiple'=>true)) }} <br/>

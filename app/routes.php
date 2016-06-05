@@ -12,12 +12,13 @@
 */
 
 Route::get('/', array('as'=>'homepage', 'uses'=>'PagesController@home'));
-Route::get('client/admin', array('as'=>'home', 'uses'=>'PagesController@admin'));
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////login and registration routes...
 
 Route::get('client/login', array('as'=>'login_client','uses'=>'AdminController@login'));
 Route::get('client/register', array('as'=>'register_client','uses'=>'AdminController@register'));
 Route::get('client/forgotpassword', array('as'=>'forgot_password', 'uses'=>'AdminController@forgotPassword'));
-
 
 //verify account page...
 Route::get('client/verify', array('as'=>'verify_account', 'uses'=>'AdminController@verifyAccount'));
@@ -50,6 +51,7 @@ Route::get('logout', array('as'=>'logout', 'uses'=>'AdminController@logout'));
 //routes that require auth.... 
 Route::group(array('before'=>'auth'), function(){
 
+	Route::get('client/admin', array('as'=>'home', 'uses'=>'PagesController@admin'));		//go to the admin home...
 	Route::get('/client/profile/edit', array('as'=>'edit_profile', 'uses'=>'UserController@editprofile'));
 
 	Route::get('/client/products/new', array('as'=>'new_product', 'uses'=>'ItemsController@newitem'));

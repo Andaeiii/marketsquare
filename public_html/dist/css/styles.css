@@ -5,3 +5,4 @@ hr {
 }
 
 .has-error{border-right:solid 2px #ff0000;}
+label small{font-weight:normal !important; font-size:75%; color: #aaaaaa;}
