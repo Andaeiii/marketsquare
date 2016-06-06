@@ -28,6 +28,11 @@ Route::get('client/verify', array('as'=>'verify_account', 'uses'=>'AdminControll
 Route::post('client/login', 'AdminController@process_login');
 Route::post('client/register', 'AdminController@process_register');
 Route::post('client/verifyaccount', 'AdminController@verifyCode');		//verify account..
+Route::post('client/forgot_pass', 'AdminController@forgotPass');
+
+//reset password value pased on the final obj... 
+Route::get('client/reset_password/{code}', 'AdminController@resetPasswordVal');
+Route::post('client/set_password_value', 'AdminController@setpassword');
 
 //static pages.... 
 Route::get('pages/policy', array('as'=>'policy', 'uses'=>'PagesController@showpolicy'));

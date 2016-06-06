@@ -6,7 +6,7 @@
 			</div>
 			<div style="width:100%; height:300px; padding:20px;">
 				we thank you for being a part of the transformation agenda... at Buynaija::Marketsquare
-				<br>Your Verification Code is  <!-- <b>&#8358;</b> -->{{$vcode}} !!!
+				<br>{{$msg}}
 				<br/>
 				<br/>
 				<p style="display:block; width:100%;">

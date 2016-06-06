@@ -32,6 +32,9 @@
 
             <div class="col-md-3">
 
+            @if($errors->any())
+            	{{pr($errors)}}
+            @endif
 
 
             </div>

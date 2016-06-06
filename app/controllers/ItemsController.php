@@ -15,6 +15,10 @@ class ItemsController extends BaseController {
 	|
 	*/
 
+	function __construct(){
+		
+	}
+
 	public function newItem(){
 		return View::make('admin.pages.additem')
 				->with('cats', Category::all());
@@ -25,7 +29,6 @@ class ItemsController extends BaseController {
 	}
 
 	public function createItem(){
-
 
 
 		//if Validation passes..... 
@@ -39,17 +42,19 @@ class ItemsController extends BaseController {
 			
 				//upload the files to the database.... 
 				$count = 1;		
-				$files = Input::file('files');
 				$upl = array();
 
-				pr($files, true);
+				//get the files first... 
+				$files = Input::file('files');
+
+				//pr($files, true);
 
 			    foreach($files as $fl) {
 			    	if(!is_null($fl)){
 			    		$ext = $fl->guessClientExtension();
 						//give it a new name... and do upload... 
 				    	$xname = str_replace('','_',Auth::user()->username).'_'.time().'_'.$count.'.'.$ext;
-				        $fl->move('uploads/', $xname);
+				        $fl->move('uploads/large/', $xname);
 				        
 				        //increase counter and push into array...
 				        array_push($upl, $xname);	
@@ -91,14 +96,16 @@ class ItemsController extends BaseController {
 
 	private function updateImgDimensions($imgfile){
 		 //get file string...
-		 $img = 'uploads/'.$imgfile;
+		 $img = 'uploads/large/'.$imgfile;
+		 $thmb = 'uploads/small/'.$imgfile;
 
 		 //create a new image canvas with white background...
-		 $bg = Image::canvas(800, 600, '#FFFFFF');
+		 $bg = Image::canvas(800, 600, '#FFFFFF'); //for larve canvas... 
+		 $thbg = Image::canvas(160, 120, '#FFFFFF'); //for small canvas..
 
 		 //after moving the files...  // resize it... 
-		 $wd = Image::make($img)->width();
-		 $ht = Image::make($img)->height();
+		 //$wd = Image::make($img)->width();
+		 //$ht = Image::make($img)->height();
 
 
 		 //resize it to 800 x 600..... and retain aspect ratio...
@@ -107,15 +114,25 @@ class ItemsController extends BaseController {
 					    $c->upsize();
 					});
 
-		 //add water mark before adding backgroung... 
+		 //add water mark to LARGE image before adding backgroung... 
 		 $watermark = Image::make('assets/watermark.png');
 		 $resized->insert($watermark, 'bottom-right', 20, 20);
 
 		 // insert resized image centered into background
 		 $bg->insert($resized, 'center');
 
+
+
+		 //resize a smaller version too..... no watermarks... 
+		 $small = Image::make($img)->resize(160, 120, function ($c) {
+					    $c->aspectRatio();
+					    $c->upsize();
+					});
+
+		 $thbg->insert($small, 'center');	// insert small image on white background too...
+
 		 // save back to file
-		 if($bg->save($img)){
+		 if($bg->save($img) && $thbg->save($thmb)){
 		 	echo 'resized....';
 		 }
 

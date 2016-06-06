@@ -30,7 +30,7 @@ class AdminController extends BaseController {
 	public function register(){
 		return View::make('admin.pages.register')
 				->with('states', State::all())
-				->with('page_title','Register New Client | Company |Organization');
+				->with('page_title','Register Company, Product and Services');
 
 	}
 
@@ -76,6 +76,61 @@ class AdminController extends BaseController {
 		    [tnc] => on
 	*/
 
+    public function forgotPass(){
+
+    	$vx = Admin::validate(Input::all());
+
+    	if($vx->fails()){
+
+    		return Redirect::back()->withErrors($vx);
+
+    	}else{	
+    			//generate a random character... 
+    			$rval = stripslashes($this->getRandChar());
+
+    			//retrieve the user object from the company object... 
+    			$details = Company::with('user')->where('email', Input::get('qpass'))->first();
+				$u = $details['user'];		//extract the user object... 
+    			$u->reset_pass = $rval;		//then save to the database...
+
+    			$u->save();
+    				//echo 'success, i have been saved... <br/>';
+    				//echo 'click on this link to reset your password <a href="http://www.buynaija.com/client/reset_password/'. $rval .'"> [[ reset password ]] <a>';
+
+		//pr($details, true);
+    		    
+    		    $config = array(
+					'fullname' 	=>  $details->name,
+					'email'		=> Input::get('qpass'),
+					'message' 		=> 'click on this link to reset your password <a href="http://www.buynaija.com/client/reset_password/'.$rval.'"> [[ reset password ]] <a><br/>'
+				);
+
+				//send verification email first... 
+				if(parent::sendVerifyMail($config)){
+					//redirect to page... 
+					return Redirect::back()->with('nmsg','iztrue');					
+				}
+    	}
+
+    }
+
+
+    public function resetPasswordVal($v){
+    	//return the view with the code...
+    	return View::make('admin.pages.reset_password')
+    					->with('page_title', 'Enter New Password')
+    					->with('xcode', $v);
+    }
+
+    public function setPassword(){
+    	pr(Input::all());
+    	$usr = User::where('reset_pass', Input::get('xc'))->first();	//retrieve user object...
+    	$usr->password = Hash::make(Input::get('npval'));
+    	$usr->reset_pass = '';
+    	$usr->save();	//save the password and then move to new route...
+    	return Redirect::to('client/login');
+    }
+
 
 	public function process_register(){
 		
@@ -90,6 +145,9 @@ class AdminController extends BaseController {
 			  return Redirect::back()->withErrors($v)->withInput();
 
 		}else{
+
+				//pr(Input::all(), true);
+
 			//go ahead and register.... //using SQL Transactions.... 
 			//first do the login registration... 
 
@@ -129,11 +187,11 @@ class AdminController extends BaseController {
 				$config = array(
 					'fullname' 	=> Input::get('fullname'),
 					'email'		=> Input::get('email'),
-					'code' 		=> $this->code
+					'msg' 		=> 'Your Verification Code is  ' . $this->code . '!!!'
 				);
 
 				//send verification email first... 
-				if($this->sendVerifyMail($config)){
+				if(parent::sendVerifyMail($config)){
 					//redirect to page... 
 					return Redirect::to('client/verify')->with('page_title','Verify Client Account');
 					
@@ -150,60 +208,6 @@ class AdminController extends BaseController {
 
 	}
 
-
-	private function sendVerifyMail($config){  //$email, $code..
-
-		//koborize it..
-		//$amt = intval($t['amount'])/100;
-
-		//create the message...
-		$msg = View::make('emails.resp')
-					->with('fullname', $config['fullname'])
-					->with('vcode', $config['code'])
-					->with('email', $config['email'])
-					->render();
-
-			$mail = new PHPMailer;
-
-			//$mail->SMTPDebug = 3;                               // Enable verbose debug output
-
-			$mail->isSMTP();                                      // Set mailer to use SMTP
-			$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-			$mail->SMTPAuth = true;                               // Enable SMTP authentication
-			$mail->Username = 'buynaijahq@gmail.com';                 // SMTP username
-			$mail->Password = 'buynaija12345';                           // SMTP password
-			$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-			$mail->Port = 587;                                    // TCP port to connect to
-
-			$mail->setFrom($config['email'], $config['fullname']);
-			
-			//the To Addresses...
-			$mail->addAddress('buynaija12345@gmail.com', 'BuyNaija :: Admin');     // Add a recipient
-			$mail->addAddress('andaeiii@aol.com', 'Andaeiii Caleb'); 
-			$mail->addAddress($config['fullname'], $config['email']);   
-			
-			//add custom mails here.....
-			$mail->addCC('andaeiii@aol.com');
-			//$mail->addBCC('andaeiii@facebook.com');
-
-			//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-			//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-			$mail->isHTML(true);                                  // Set email format to HTML
-
-			$mail->Subject = 'Buynaija.com :: Client Registration....';
-			$mail->Body    =  $msg;
-			$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-			if(!$mail->send()) {
-			   // echo 'Message could not be sent.</br>';
-			   // echo 'Mailer Error: ' . $mail->ErrorInfo;
-				return false;
-			} else {
-				return true;
-			   //echo 'Message has been sent';
-			}
-
-	}
 
 
 	//handle the ajax functions.... only export the options... 
@@ -240,6 +244,29 @@ class AdminController extends BaseController {
 
 
 
+	//function to retrieve Random Code for password retrieval......	
+	public function getRandChar($length=70) {
+		$characters = '0123456789abcdefghijklmnopqrstu@_vwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$charactersLength = strlen($characters);
+		$xc = '';
+
+		for ($i = 1; $i <= $length; $i++) {
+			$xc .= $characters[rand(0, $charactersLength - 1)];
+		}		
+
+		//check if code exists....
+		$cr = User::where('reset_pass', $xc)->count(); //firstOrFail();
+
+		//makesure code is unique....
+		if($cr == 0){
+			return strtolower($xc); 	//makesure code is unique....
+		}else{
+			$this->getRandChar();	//repeat process until code is unique..
+		}	
+	}
+
+
+
 	public function verifyCode(){
 
 
@@ -271,9 +298,12 @@ class AdminController extends BaseController {
 		}
 	}
 
+
 	public function logout(){
 		Auth::logout();
 		return Redirect::route('homepage');
 	}
+
+
 
 }

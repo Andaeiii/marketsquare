@@ -11,6 +11,13 @@
 			'prod_cat' 		=> 'required',
 			'prod_count' 	=> 'required',
 			'sprice' 		=> 'required',
-			'qprice' 		=> 'required'
+			'qprice' 		=> 'required',
+			'files'			=> 'required'
 		);
+
+
+		public function user(){
+			return $this->belongsTo('User', 'user_id');
+		}
+
 	}

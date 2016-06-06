@@ -30,8 +30,8 @@
 			'address'			=>	'required',
 			'state_optn'		=>	'required',
 			'lga_optn'			=>	'required',
-			'username'			=>	'required|unique:users,username|min:6',
-			'password'			=>	'required|min:8',
+			'username'			=>	'required|unique:users,username|min:5',
+			'password'			=>	'required|min:5',
 			'confirm_password'	=>	'same:password',
 			'hearaboutus'		=>	'required'
 		);
