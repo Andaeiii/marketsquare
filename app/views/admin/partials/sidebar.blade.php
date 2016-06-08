@@ -27,7 +27,7 @@
               <a href="#">
                 <i class="fa fa-pie-chart"></i>
                 <span>Your Products</span>
-                <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-angle-right pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="/client/products/new"><i class="fa fa-circle-o"></i>Add Products</a></li>
@@ -38,15 +38,12 @@
 
 
             <li class="treeview">
-              <a href="#">
+              <a href="/client/category/new">
                 <i class="fa fa-pie-chart"></i>
-                <span>Your Categories</span>
-                <i class="fa fa-angle-left pull-right"></i>
+                <span>Manage Categories</span>
+                
               </a>
-              <ul class="treeview-menu">
-                <li><a href="/client/category/new"><i class="fa fa-circle-o"></i>Add Category</a></li>
-                <li><a href="/client/categoty/all"><i class="fa fa-circle-o"></i>All Categories</a></li>
-              </ul>
+              
             </li>
 
 

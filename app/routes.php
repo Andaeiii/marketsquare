@@ -39,7 +39,8 @@ Route::get('pages/policy', array('as'=>'policy', 'uses'=>'PagesController@showpo
 
 
 //admin ajax functions.... 
-Route::get('/admin/getlgas/{id}', 'AdminController@getlgas')->where('id', '\d+');
+Route::get('/admin/getlgas/{id}', 'AdminController@getlgas')->where('id', '\d+');	//all lgas..
+Route::get('/admin/category/{cat}', 'ItemsController@getcategorys')->where('cat', '\d+'); //all categories..
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////

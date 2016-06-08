@@ -30,6 +30,26 @@
     <script src="/plugins/input-mask/jquery.inputmask.extensions.js"></script>
      <!-- CK Editor -->
     <script src="https://cdn.ckeditor.com/4.4.3/basic/ckeditor.js"></script>
+    <script src="/js/admin_scripts.js"></script>
+
+
+     @if(!empty($curitem)&& $curitem == 'datatablex')
+        <script src="/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="/plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <script>
+          $(function () {
+            $("#example1").DataTable();
+            $('#tabular-items').DataTable({
+              "paging": true,
+              "lengthChange": false,
+              "searching": true,
+              "ordering": true,
+              "info": true,
+              "autoWidth": false
+            });
+          });
+        </script>
+    @endif
 
     <script>
 

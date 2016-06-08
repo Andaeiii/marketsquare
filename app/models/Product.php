@@ -4,6 +4,8 @@
 	class Product extends Basemodel{
 
 		protected $table = 'products';
+		protected $fillable =  array('company_id', 'category_id', 'name', 'short_description', 'description', 'quoted_price', 
+					'selling_price', 'images');
 
 		public static $rules = array(
 			'prod_name' 	=> 'required',
@@ -18,6 +20,10 @@
 
 		public function user(){
 			return $this->belongsTo('User', 'user_id');
+		}
+
+		public function category(){
+			return $this->belongsTo('Category', 'category_id');
 		}
 
 	}

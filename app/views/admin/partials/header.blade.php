@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
     <link rel="stylesheet" href="/plugins/jvectormap/jquery-jvectormap-1.2.2.css"/>
     <link rel="stylesheet" href="/dist/css/AdminLTE.min.css"/>
+
+    @if(!empty($curitem)&& $curitem == 'datatablex')
+         <link rel="stylesheet" href="/plugins/datatables/dataTables.bootstrap.css">
+    @endif
+
     <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css"/>
     <link rel="stylesheet" href="/dist/css/styles.css"/>
   </head>

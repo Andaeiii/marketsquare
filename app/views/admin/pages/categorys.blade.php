@@ -72,8 +72,8 @@
             				</ul>
             		</div>
 
-            		<div class="col-md-3 br_lft">
-                            <div class="spinner"><i class="fa fa-refresh fa-spin"></i></div>
+            		<div id="cdsc" class="col-md-3 br_lft">
+                            
             		</div>
 
 
@@ -101,3 +101,4 @@
 .prvcats li a{text-transform: capitalize;}
 .prvcats ul{margin-left:10px !important; padding-left:0px !important;}
 </style>
+

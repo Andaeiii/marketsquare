@@ -12,13 +12,14 @@
 
 <body id="page-top"> 
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top"> <div class="container-fluid"> <!-- Brand and toggle get grouped for better mobile display --> <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
- <a class="navbar-brand page-scroll" href="#page-top">The MarketSquare</a> </div> <!-- Collect the nav links, forms, and other content for toggling --> <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> <ul class="nav navbar-nav navbar-right"> <li><a class="page-scroll" href="#page-top">Home</a></li> <li><a class="page-scroll" href="#about">Who we are</a></li> <li><a class="page-scroll" href="#services">Key Features</a></li> <li><a class="page-scroll" href="#portfolio">Products Showcase</a></li> <li><a class="page-scroll" href="#contact">get in touch</a></li> </ul> </div> <!-- /.navbar-collapse --> </div> <!-- /.container-fluid --> </nav>
+ <a class="navbar-brand page-scroll" href="#page-top">The MarketSquare</a> </div> <!-- Collect the nav links, forms, and other content for toggling --> <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> <ul class="nav navbar-nav navbar-right"> <li><a class="page-scroll" href="#page-top">Home</a></li> <li><a class="page-scroll" href="#about">Who we are</a></li> <li><a class="page-scroll" href="#services">Key Features</a></li> <li><a class="page-scroll" href="#portfolio">Products Showcase</a></li> <li><a class="page-scroll" href="#contact">Contact Us</a></li> </ul> </div> <!-- /.navbar-collapse --> </div> <!-- /.container-fluid --> </nav>
 
 <header> <div class="header-content"> <div class="header-content-inner"> <div class="logo">
 
 <img src="/demo/g/lg.png"/> 
-<h1>BuyNaija - The MarketSquare</h1> 
-<span>A 'Buy Made-In-Nigeria' &amp;'Make-In-Nigeria' Campaign, Since 2012</span>
+
+<!-- <h1>BuyNaija - The MarketSquare</h1>  -->
+<span>A 'Buy Made-In-Nigeria' &amp; 'Make-In-Nigeria' Campaign, Since 2012</span>
 
 </div>  <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More </a> </div> </div> </header> 
 
@@ -50,8 +51,10 @@ BuyNaija.com…The Market Square, is a One-Stop global e-Commerce Platform of th
 <p class="text-muted"> Designed to give Nigerian Local Manufacturers Wide International Reach and Deep Global Market Penetration, thereby Boosting Export and FOREX Earnings</p> </div> </div>		 
 
 <div class="col-lg-4 col-md-6 text-center"> <div class="service-box"> <i class="fa fa-4x fa-info-circle wow bounceIn text-primary" data-wow-delay=".3s"></i>  
-<p class="text-muted">Comprehensive Information on BUY-NAIJA-FMITI Stakeholders to boost Industry, Trade and Investment for the benefit of the whole country and potential foreign and local investors </p> </div> </div>  
+<p class="text-muted"> Comprehensive Information on BUY-NAIJA-FMITI Stakeholders to boost Industry, Trade and Investment for the benefit of the whole country and potential foreign and local investors </p> </div> </div>  
 
+<div class="col-lg-4 col-md-6 text-center"> <div class="service-box"> <i class="fa fa-4x fa-info-circle wow bounceIn text-primary" data-wow-delay=".3s"></i>  
+<p class="text-muted"> A One-Stop Platform which provides Comprehensive Information/Data and other Linkage–enablers geared toward the   integration of Nigerian MSMEs into the Value-Chains of large Nigerian Enterprises. The Value-Chain partners scheme will encourage large corporate to tap into a pool of registered MSMEs and Cooperatives who can supply items currently imported  </p> </div> </div>  
 
 </section> 
 
@@ -60,14 +63,14 @@ BuyNaija.com…The Market Square, is a One-Stop global e-Commerce Platform of th
 <aside class="bg-dark" style="background-image:url(/demo/g/bgx.jpg)"> <div class="container text-center"> 
 
 <div class="call-to-action"> 
-<a href="/client/register" class="btn btn-primary btn-xl page-scroll">Register As An Organization </a> 
-<a href="/client/register" class="btn btn-primary btn-xl page-scroll">Register As A Client</a>
+<a href="/client/register" class="btn btn-primary btn-xl page-scroll" style="border:solid 4px #ffffff; font-weight:bolder;">Register your Company </a> 
 </div>
 
- </div> </aside> 
+</div> 
 
+</aside> 
 
-<section id="contact"> <div class="container"> <div class="row"> <div class="col-lg-8 col-lg-offset-2 text-center"> <h2 class="section-heading">Contact Us</h2> <hr class="primary"> <p>Federal Ministry of Industry, Trade & Investment, <br/>Block C,Rm 244, Old Secretariat Garki, Area 1, Abuja
+<section id="contact"> <div class="container"> <div class="row"> <div class="col-lg-8 col-lg-offset-2 text-center"> <h2 class="section-heading">Contact Us</h2> <hr class="primary"> <p>BuyNaija Project <br/>Federal Ministry of Industry, Trade & Investment, <br/>Block C, Rm 235, Old Secretariat Garki, Area 1, Abuja
 
 </p> </div> <div class="col-lg-4 col-lg-offset-2 text-center"> <i class="fa fa-phone fa-3x wow bounceIn"></i> <p>08124126867</br> 08033168383</br> 09083041643</p> </div> <div class="col-lg-4 text-center"> <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i> <p><a href="mailto:your-email@your-domain.com">info@:buynaija.com</a><br/><a href="http://www.buynaija.com/">www.buynaija.com</a></p> </div> </div> </div> </section>
  <!-- jQuery --> 

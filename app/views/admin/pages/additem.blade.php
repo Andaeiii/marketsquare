@@ -24,7 +24,8 @@
 	        <!-- Main content -->
         <section class="content">
         
-        @include('admin.partials.infoboxes')
+       
+          
 
           <!-- Main row -->
           <div class="row">
@@ -32,10 +33,9 @@
 
             <div class="col-md-3">
 
-            @if($errors->any())
-            	{{pr($errors)}}
-            @endif
-
+            <div class="srvmsg">
+          		...your product was added successfully
+            </div>
 
             </div>
 
@@ -64,6 +64,12 @@
 						                    @endforeach
 					                    </select>
 					                  </div>
+
+					                   <!-- Date dd/mm/yyyy -->
+					                  <div class="form-group">
+					                    <label>Short Description *</label>
+					                    <textarea class="form-control" name="short_desc" style="width:100% !important" rows="3"></textarea>
+					                  </div><!-- /.form group -->
 
 					                   <!-- Date dd/mm/yyyy -->
 					                  <div class="form-group">

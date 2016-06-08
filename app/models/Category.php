@@ -11,4 +11,8 @@
 			'cat_desc' => 'required'
 		);
 
+		public function products(){
+			return $this->hasMany('Product', 'category_id');
+		}
+
 	}

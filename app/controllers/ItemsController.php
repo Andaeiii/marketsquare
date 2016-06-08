@@ -25,11 +25,15 @@ class ItemsController extends BaseController {
 	}
 
 	public function allItems(){
-		return 'all items';
+		return View::make('admin.pages.allitems')
+				->with('allitems', Product::all())
+				->with('curitem', 'datatablex');
 	}
 
 	public function createItem(){
+		//echo Auth::user()->id; 
 
+		//pr(Input::all(), true);
 
 		//if Validation passes..... 
 		$v = Product::validate(Input::all());
@@ -71,20 +75,40 @@ class ItemsController extends BaseController {
 			    $txar = serialize($upl);		
 
 			    //prepare cheditor for dbase....  
-		   		$str = htmlspecialchars(Input::get('prod_desc'));	//text from the editor... 
+		   		$strr = htmlspecialchars(Input::get('prod_desc'));	//text from the editor... 
 
-		   		echo 'the string ' . $str;
+		   		//echo 'the string ' . $str;
 
 
-		   		exit;
-
+		   		//exit;
+		   		/*
+					id, company_id, category_id, name, short_description, description, quoted_price, 
+					selling_price, images, created_at, updated_at
+		   		*/
 			   //now enter data into dbase... 
-			    $id = Product::create(array(
 
+			  try{  // echo $txar;
+
+			    $id = Product::create(array(
+			    			'company_id' 		=> Auth::user()->id, //Input::get(''),
+			    			'category_id' 		=> Input::get('prod_cat'),
+			    			'name'				=> Input::get('prod_name'),
+			    			'short_description'	=> stripslashes(Input::get('short_desc')),
+			    			'stock_count' 		=> Input::get('prod_count'),
+			    			'quoted_price'		=> Input::get('qprice'),
+			    			'selling_price'		=> Input::get('sprice'),
+			    			'images'			=> $txar,
+			    			'description'		=> $strr,
 			    	  ));
 
+
+			    if($id){
+
+			    	return Redirect::back()->with('message', 'product added successfully....');
+			    }
+
 			 
-			try{  // echo $txar;
+			
 
 			}catch(Exception $e){
 				echo $e->message();
@@ -154,6 +178,12 @@ class ItemsController extends BaseController {
 		//return new category...
 		return View::make('admin.pages.categorys')
 				->with('cats', Category::all());;
+	}
+
+	public function getCategorys($id){
+		//$p = Category::find($ct)->get(); pr($p);		
+		$p = DB::table('categorys')->where('id', $id)->pluck('description');
+		echo '<strong>Examples Include </strong> <br/>'.str_replace(',','<br/>', strval($p));
 	}
 
 	public function addCategory(){		
