@@ -19,17 +19,6 @@
                 <ul class="chart-legend clearfix" >
 
                   <li><i class="fa fa-circle-o text-red"></i> Automobile</li>
-                  <li><i class="fa fa-circle-o text-green"></i> Food Supplements</li>
-                  <li><i class="fa fa-circle-o text-yellow"></i> Medicals</li>
-                  <li><i class="fa fa-circle-o text-red"></i> Automobile</li>
-                  <li><i class="fa fa-circle-o text-green"></i> Food Supplements</li>
-                  <li><i class="fa fa-circle-o text-yellow"></i> Medicals</li>
-                  <li><i class="fa fa-circle-o text-red"></i> Automobile</li>
-                  <li><i class="fa fa-circle-o text-green"></i> Food Supplements</li>
-                  <li><i class="fa fa-circle-o text-yellow"></i> Medicals</li>
-                  <li><i class="fa fa-circle-o text-red"></i> Automobile</li>
-                  <li><i class="fa fa-circle-o text-green"></i> Food Supplements</li>
-                  <li><i class="fa fa-circle-o text-yellow"></i> Medicals</li>
 
                 </ul>
 

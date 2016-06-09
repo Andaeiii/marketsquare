@@ -21,7 +21,7 @@ Route::get('client/register', array('as'=>'register_client','uses'=>'AdminContro
 Route::get('client/forgotpassword', array('as'=>'forgot_password', 'uses'=>'AdminController@forgotPassword'));
 
 //verify account page...
-Route::get('client/verify', array('as'=>'verify_account', 'uses'=>'AdminController@verifyAccount'));
+Route::get('client/verify', array('as'=>'verify_account', 'uses'=>'AdminController@verifyAcc'));
 
 
 //Register Routes.... 
@@ -45,9 +45,8 @@ Route::get('/admin/category/{cat}', 'ItemsController@getcategorys')->where('cat'
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Route::get('/admin', array('as'=>'admin','uses'=>'PagesController@admin'));
-
-Route::get('logout', array('as'=>'logout', 'uses'=>'AdminController@logout'));
+Route::get('/admin', array('as'=>'admin','uses'=>'PagesController@admin'));  //admin homepage...
+Route::get('logout', array('as'=>'logout', 'uses'=>'AdminController@logout')); //logout user..
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -62,6 +61,7 @@ Route::group(array('before'=>'auth'), function(){
 
 	Route::get('/client/products/new', array('as'=>'new_product', 'uses'=>'ItemsController@newitem'));
 	Route::get('/client/products/all', array('as'=>'all_items', 'uses'=>'ItemsController@allitems'));
+	Route::post('/client/products/{ct}/delete', 'ItemsController@deleteItem')->where('ct', '\d+'); //all categories..
 	Route::post('/client/products/add', array('as'=>'createItem', 'uses'=>'ItemsController@createItem'));
 
 	Route::get('/client/category/new', array('as'=>'new_category', 'uses'=>'ItemsController@newcategory'));

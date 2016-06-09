@@ -1,4 +1,6 @@
       <!-- PRODUCT LIST -->
+        {{-- pr($most_recent) --}}
+
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <h3 class="box-title">Recently Added Products</h3>
@@ -7,55 +9,31 @@
                     <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                   </div>
                 </div><!-- /.box-header -->
+
+
                 <div class="box-body">
                   <ul class="products-list product-list-in-box">
+                   
+
+                  @foreach($most_recent as $item)
                     <li class="item">
-                      <div class="product-img">
-                        <img src="/dist/img/default-50x50.gif" alt="Product Image">
+                      <div class="product-img" style="width:50px;height:50px; overflow:hidden; border:solid 1px #cccccc;">
+                      <?php $ar = unserialize($item->images); ?>
+                        <img src="/uploads/small/{{$ar[0]}}" alt="Product Image">
+                      
                       </div>
                       <div class="product-info">
-                        <a href="javascript::;" class="product-title">Samsung TV <span class="label label-warning pull-right">$1800</span></a>
+                        <a href="javascript::;" class="product-title">{{$item->name}} <span class="label label-warning pull-right">{{$item->selling_price}}</span></a>
                         <span class="product-description">
-                          Samsung 32" 1080p 60Hz LED Smart HDTV.
+                          {{$item->short_description}}
                         </span>
                       </div>
                     </li><!-- /.item -->
-                    <li class="item">
-                      <div class="product-img">
-                        <img src="/dist/img/default-50x50.gif" alt="Product Image">
-                      </div>
-                      <div class="product-info">
-                        <a href="javascript::;" class="product-title">Bicycle <span class="label label-info pull-right">$700</span></a>
-                        <span class="product-description">
-                          26" Mongoose Dolomite Men's 7-speed, Navy Blue.
-                        </span>
-                      </div>
-                    </li><!-- /.item -->
-                    <li class="item">
-                      <div class="product-img">
-                        <img src="/dist/img/default-50x50.gif" alt="Product Image">
-                      </div>
-                      <div class="product-info">
-                        <a href="javascript::;" class="product-title">Xbox One <span class="label label-danger pull-right">$350</span></a>
-                        <span class="product-description">
-                          Xbox One Console Bundle with Halo Master Chief Collection.
-                        </span>
-                      </div>
-                    </li><!-- /.item -->
-                    <li class="item">
-                      <div class="product-img">
-                        <img src="/dist/img/default-50x50.gif" alt="Product Image">
-                      </div>
-                      <div class="product-info">
-                        <a href="javascript::;" class="product-title">PlayStation 4 <span class="label label-success pull-right">$399</span></a>
-                        <span class="product-description">
-                          PlayStation 4 500GB Console (PS4)
-                        </span>
-                      </div>
-                    </li><!-- /.item -->
+                  @endforeach
+
                   </ul>
                 </div><!-- /.box-body -->
                 <div class="box-footer text-center">
-                  <a href="javascript::;" class="uppercase">View All Products</a>
+                  <a href="/client/products/all" class="uppercase">View All Products</a>
                 </div><!-- /.box-footer -->
               </div><!-- /.box -->

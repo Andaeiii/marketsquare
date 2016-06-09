@@ -6,7 +6,7 @@
 
  <section class="content-header">
 
-  <h1 style="capitalize">
+  <h1 style="text-transform:capitalize">
     All {{Auth::user()->username}}'s Items :: Products
   </h1>
 
@@ -76,7 +76,11 @@
                         <td>{{$obj->quoted_price}}</td>
                         <td>{{count(unserialize($obj->images))}} Images</td>
                         <td>{{date_format($obj->created_at, 'dS M, Y')}}</td>
-                        <td></td>
+                        <td>
+                        	<a href="/client/items/{{$ct}}/delete" title="Delete Item Completely"><img src="/assets/deletx.png" width="15" /></a> 
+                        	&nbsp;&nbsp;
+                        	<a href="/client/items/{{$ct}}/edit" title="Edit Item details"><img src="/assets/dwn.png" width="15" /></a>
+                        </td>
                       </tr>
 
                      <?php

@@ -30,6 +30,10 @@ class ItemsController extends BaseController {
 				->with('curitem', 'datatablex');
 	}
 
+	public function deleteItem($v){
+		echo $v;
+	}
+
 	public function createItem(){
 		//echo Auth::user()->id; 
 

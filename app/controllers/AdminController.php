@@ -20,6 +20,12 @@ class AdminController extends BaseController {
 	function __construct(){
 		//register ...
 		$this->code = $this->getVerificationCode(10);
+
+		//if the user is logged out... 
+		if(!Auth::check()){
+			//return Redirect::to('/client/login');
+		}
+		//exit;
 	}
 
 	public function login(){
@@ -35,6 +41,10 @@ class AdminController extends BaseController {
 	}
 
 	public function forgotPassword(){
+		if(isset($_SESSION['pass_reset'])){
+			echo 'true true.... ';
+			exit;
+		}
 		return View::make('admin.pages.forgot_password')
 				//->with('states', States::all())
 				->with('page_title','Forgotten Your Password');
@@ -43,12 +53,12 @@ class AdminController extends BaseController {
 	public function verifyAccount(){
 		return View::make('admin.pages.verify_account')
 				//->with('states', States::all())
-				->with('page_title','Step 2 :: Verify Account');
+				->with('page_title','Verify Your Account');
 	}
 
 	//handle input and register details... 
 	public function process_login(){
-		pr(Input::all());
+		//pr(Input::all());
 		//authenticate the users... 
 		$ar = array(
 			'username' => Input::get('username'),
@@ -88,9 +98,10 @@ class AdminController extends BaseController {
     			//generate a random character... 
     			$rval = stripslashes($this->getRandChar());
 
+
     			//retrieve the user object from the company object... 
-    			$details = Company::with('user')->where('email', Input::get('qpass'))->first();
-				$u = $details['user'];		//extract the user object... 
+    			$details = Company::where('email', Input::get('qpass'))->first();
+    			$u = User::find($details->user_id); 
     			$u->reset_pass = $rval;		//then save to the database...
 
     			$u->save();
@@ -102,12 +113,13 @@ class AdminController extends BaseController {
     		    $config = array(
 					'fullname' 	=>  $details->name,
 					'email'		=> Input::get('qpass'),
-					'message' 		=> 'click on this link to reset your password <a href="http://www.buynaija.com/client/reset_password/'.$rval.'"> [[ reset password ]] <a><br/>'
+					'message' 	=> 'click on this link to reset your password <a href="http://www.buynaija.com/client/reset_password/'.$rval.'"> [[ reset password ]] <a><br/>'
 				);
 
 				//send verification email first... 
 				if(parent::sendVerifyMail($config)){
 					//redirect to page... 
+					$_SESSION['pass_reset']  = 'true';
 					return Redirect::back()->with('nmsg','iztrue');					
 				}
     	}
@@ -146,13 +158,6 @@ class AdminController extends BaseController {
 
 		}else{
 
-				//pr(Input::all(), true);
-
-			//go ahead and register.... //using SQL Transactions.... 
-			//first do the login registration... 
-
-			//$cdx = $this->getVerificationCode(10);
-
 			try{
 				
 
@@ -182,32 +187,37 @@ class AdminController extends BaseController {
 					$c->verified = false;
 					$c->save();
 
+					//after registering... automatically register the person.... 
+					//automatically login in the user... 
+					Auth::login($u);
+
 				});
 
-				$config = array(
-					'fullname' 	=> Input::get('fullname'),
-					'email'		=> Input::get('email'),
-					'msg' 		=> 'Your Verification Code is  ' . $this->code . '!!!'
-				);
+				
 
-				//send verification email first... 
-				if(parent::sendVerifyMail($config)){
-					//redirect to page... 
-					return Redirect::to('client/verify')->with('page_title','Verify Client Account');
-					
-				}
-	
 
 			}catch(\Illuminate\Database\QueryException  $e){
 				echo $e->getMessage();
 				//return Redirect::back()->with('page_title','Error Registering Client...');
-
 			}
+			
+
+			return Redirect::to('/admin');
 
 		}	//if statement... 
 
 	}
 
+
+	public function verifyAcc(){
+		$config = array(
+			'fullname' 	=> Auth::user()->entity()->pluck('name'),
+			'email'		=> Auth::user()->entity()->pluck('email'),
+			'message' 	=> 'Your Verification Code is  ' . $this->code . '  !!!'
+		);
+		parent::sendVerifyMail($config);
+		return Redirect::to('client/verify')->with('page_title','Verify Client Account');
+	}
 
 
 	//handle the ajax functions.... only export the options... 

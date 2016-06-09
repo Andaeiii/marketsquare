@@ -25,7 +25,7 @@
 		//the rules... 
 		public static $rules = array(
 			'fullname' 			=>	'required|min:5',
-			'email'				=>	'required|email',
+			'email'				=>	'required|email|unique:companys,email',
 			'phone'				=>	'required|min:8',
 			'address'			=>	'required',
 			'state_optn'		=>	'required',

@@ -30,7 +30,11 @@ class PagesController extends BaseController {
 
 	//for admin pages....
 	public function admin(){
-		return View::make('admin.pages.index');
+		//$c = Company::user()->products()->get();
+		return View::make('admin.pages.index')
+				->with('most_recent', 
+					Product::where('company_id', Auth::user()->id)->orderBy('id', 'DESC')->take(4)->get());
+				//->with('categories', '');
 	}
 
 
