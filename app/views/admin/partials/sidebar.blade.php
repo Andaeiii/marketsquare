@@ -15,8 +15,13 @@
 
             <li class="header">MAIN NAVIGATION</li>
             
-
-            <li class="active ">
+            <li>
+              <a href="/admin">
+                <i class="fa fa-dashboard"></i> <span>Home </span></i>
+              </a>
+            </li>
+           
+            <li>
               <a href="/client/profile/edit">
                 <i class="fa fa-user"></i> <span>Edit Profile</span></i>
               </a>

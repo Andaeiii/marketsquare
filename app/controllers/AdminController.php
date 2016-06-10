@@ -36,6 +36,7 @@ class AdminController extends BaseController {
 	public function register(){
 		return View::make('admin.pages.register')
 				->with('states', State::all())
+				->with('categorys', Category::all())
 				->with('page_title','Register Company, Product and Services');
 
 	}
@@ -50,7 +51,7 @@ class AdminController extends BaseController {
 				->with('page_title','Forgotten Your Password');
 	}
 
-	public function verifyAccount(){
+	public function enterVerifyCode(){
 		return View::make('admin.pages.verify_account')
 				//->with('states', States::all())
 				->with('page_title','Verify Your Account');
@@ -158,8 +159,6 @@ class AdminController extends BaseController {
 
 		}else{
 
-			try{
-				
 
 				DB::transaction(function(){
 
@@ -183,6 +182,7 @@ class AdminController extends BaseController {
 					$c->address = Input::get('address');
 					$c->phone = Input::get('phone');
 					$c->email = Input::get('email');
+					$c->category_id = Input::get('catg_optn');
 					$c->lga_id = Input::get('lga_optn');
 					$c->verified = false;
 					$c->save();
@@ -191,18 +191,9 @@ class AdminController extends BaseController {
 					//automatically login in the user... 
 					Auth::login($u);
 
-				});
+				});			
 
-				
-
-
-			}catch(\Illuminate\Database\QueryException  $e){
-				echo $e->getMessage();
-				//return Redirect::back()->with('page_title','Error Registering Client...');
-			}
-			
-
-			return Redirect::to('/admin');
+				return Redirect::to('/admin');		//then redirect to homepage...
 
 		}	//if statement... 
 
@@ -215,8 +206,10 @@ class AdminController extends BaseController {
 			'email'		=> Auth::user()->entity()->pluck('email'),
 			'message' 	=> 'Your Verification Code is  ' . $this->code . '  !!!'
 		);
+
+		//pr($config, true);
 		parent::sendVerifyMail($config);
-		return Redirect::to('client/verify')->with('page_title','Verify Client Account');
+		//return Redirect::to('client/verify')->with('page_title','Verify Client Account');
 	}
 
 

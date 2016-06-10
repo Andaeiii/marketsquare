@@ -28,4 +28,10 @@ class UserController extends BaseController {
 		return View::make('admin.pages.charts');
 	}
 
+	public function editProfile(){
+		return View::make('admin.pages.editprofile')
+				->with('states', State::all())
+				->with('categorys', Category::all());
+	}
+
 }

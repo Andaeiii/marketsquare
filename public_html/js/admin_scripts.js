@@ -6,7 +6,7 @@ function getCatgs(vc){
 		'type':'get',
 		'url':ux,
 		'success':function(msg){
-			$('#cdsc').html(msg);
+			$('#cdsc').html('<ul>'+msg+'</ul>');
 		}
 	})
 }

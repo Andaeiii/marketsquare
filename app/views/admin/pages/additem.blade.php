@@ -34,7 +34,7 @@
             <div class="col-md-3">
 
             <div class="srvmsg">
-          		...your product was added successfully
+          		<!-- ...your product was added successfully -->
             </div>
 
             </div>
@@ -51,16 +51,18 @@
 
 					                  <!-- Date dd/mm/yyyy -->
 					                  <div class="form-group">
-					                    <label>Name Of Product*</label>
+					                    <label>Name Of Product *</label>
 					                    <input type="text" class="form-control" name="prod_name" style="width:100% !important;" />
 					                  </div><!-- /.form group -->
 
 					                  <div class="form-group">
-					                    <label>Product Category(According to MAN)*</label>
+					                    <label>Product Category *</label>
 					                    <select class="form-control select2 select2-hidden-accessible" name="prod_cat" style="width: 100%;"  >
 					                    	<option>Select Category..... </option>
+					                    	<?php $ctv = 0; ?>
 						                    @foreach($cats as $c)
-						                    	<option value="{{$c->id}}">{{$c->name}}</option>
+						                    	<option value="{{$ctv}}">{{trim($c)}}</option>
+						                    	<?php $ctv++; ?>
 						                    @endforeach
 					                    </select>
 					                  </div>
@@ -88,7 +90,7 @@
 		            		<div class="col-md-5">
 
 		            			<div class="form-group">
-				                    <label>Total Amounts Available *</label>
+				                    <label>Total Amount in Stock *</label>
 				                    <select class="form-control select2 select2-hidden-accessible" name="prod_count" style="width: 100%;"  >
 				                    	<option>Select amount needed..... </option>
 					                    @for($i=0;$i<=200;$i++)

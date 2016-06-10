@@ -17,7 +17,7 @@
             <div class="col-md-12">
               
                 <ul class="chart-legend clearfix" >
-
+                
                   <li><i class="fa fa-circle-o text-red"></i> Automobile</li>
 
                 </ul>

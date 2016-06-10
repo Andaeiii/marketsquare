@@ -28,16 +28,6 @@
 									</div>
 								</div>
 							</div>
-							<div class="control-group">
-								<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-								<label class="control-label visible-ie8 visible-ie9">Email</label>
-								<div class="controls">
-									<div class="input-icon left">
-										<i class="icon-envelope"></i>
-										<input class="m-wrap placeholder-no-fix {{ ($errors->first('email')) ? 'has-error'  :''}}" type="text" placeholder="...Valid Email Address" name="email"/>
-									</div>
-								</div>
-							</div>
 
 							<div class="control-group">
 								<label class="control-label visible-ie8 visible-ie9">Phone Number</label>
@@ -46,6 +36,22 @@
 										<i class="icon-phone"></i>
 										<input class="m-wrap placeholder-no-fix {{ ($errors->first('phone')) ? 'has-error'  :''}}" type="text" placeholder="...Contact Phone number" name="phone"/>
 									</div>
+								</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label visible-ie8 visible-ie9">Sector/Industry</label>
+								<div class="controls">
+									
+									<select name="catg_optn">
+										<option value="">..select Industry/Sector</option>
+
+										@foreach($categorys as $c)
+											<option value="{{$c->id}}">{{$c->name}}</option>
+										@endforeach
+
+									</select>
+
 								</div>
 							</div>
 
@@ -86,6 +92,17 @@
 					<div class="span4">
 
 						<p>Enter your account details below:</p>
+
+						<div class="control-group">
+							<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+							<label class="control-label visible-ie8 visible-ie9">Email</label>
+							<div class="controls">
+								<div class="input-icon left">
+									<i class="icon-envelope"></i>
+									<input class="m-wrap placeholder-no-fix {{ ($errors->first('email')) ? 'has-error'  :''}}" type="text" placeholder="...Valid Email Address" name="email"/>
+								</div>
+							</div>
+						</div>
 
 						<div class="control-group">
 							<label class="control-label visible-ie8 visible-ie9">Enter Username :: Minimum of 6 Chars)</label>
@@ -129,7 +146,7 @@
 
 						<div class="control-group">
 							<div class="controls">
-								I agree to the BuyNaija <a href="#">Terms of Service</a> and {{ link_to_route('policy','Privacy Policy') }} <input type="checkbox" name="tnc"/> 
+								I agree to the <a href="#">Terms of Service</a> <input type="checkbox" name="tnc"/> 
 							</div>
 						</div>
 

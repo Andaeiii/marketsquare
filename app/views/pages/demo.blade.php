@@ -19,7 +19,7 @@
 <img src="/demo/g/lg.png"/> 
 
 <!-- <h1>BuyNaija - The MarketSquare</h1>  -->
-<span>A 'Buy Made-In-Nigeria' &amp; 'Make-In-Nigeria' Campaign, Since 2012</span>
+<span style="align:center">The Buy Made-In-Nigeria Campaign<br/>Since 2012</span>
 
 </div>  <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More </a> </div> </div> </header> 
 

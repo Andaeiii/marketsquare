@@ -6,7 +6,7 @@
                 <span class="info-box-icon bg-aqua"><i class="icon ion-ios-pricetag-outline"></i></span>
                 <div class="info-box-content">
                   <span class="info-box-text">Inventory</span>
-                  <span class="info-box-number">90<small>%</small></span>
+                  <span class="info-box-number">{{ $total_prods }}<small> - Items</small></span>
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
             </div><!-- /.col -->
@@ -15,7 +15,7 @@
                 <span class="info-box-icon bg-red"><i class="fa fa-clock-o"></i></span>
                 <div class="info-box-content">
                   <span class="info-box-text">Tasks</span>
-                  <span class="info-box-number">41,410</span>
+                  <span class="info-box-number">0</span>
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
             </div><!-- /.col -->
@@ -28,7 +28,7 @@
                 <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
                 <div class="info-box-content">
                   <span class="info-box-text">Sales</span>
-                  <span class="info-box-number">760</span>
+                  <span class="info-box-number">0</span>
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
             </div><!-- /.col -->
@@ -37,7 +37,7 @@
                 <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
                 <div class="info-box-content">
                   <span class="info-box-text">Visitors</span>
-                  <span class="info-box-number">2,000</span>
+                  <span class="info-box-number">0</span>
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
             </div><!-- /.col -->

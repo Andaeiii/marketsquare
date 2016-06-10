@@ -20,8 +20,10 @@ class ItemsController extends BaseController {
 	}
 
 	public function newItem(){
+		$c = Category::find(Auth::user()->entity()->pluck('category_id'));
+		//pr($c, true);
 		return View::make('admin.pages.additem')
-				->with('cats', Category::all());
+				->with('cats', explode(';', $c->description));
 	}
 
 	public function allItems(){
@@ -187,7 +189,14 @@ class ItemsController extends BaseController {
 	public function getCategorys($id){
 		//$p = Category::find($ct)->get(); pr($p);		
 		$p = DB::table('categorys')->where('id', $id)->pluck('description');
-		echo '<strong>Examples Include </strong> <br/>'.str_replace(',','<br/>', strval($p));
+		$cts = explode(';',$p);
+		//pr($cts, true);
+		$t = '';
+		foreach($cts as $t){
+			$t .= '<li>'. trim($t) .'</li>';
+		}
+
+		echo $t;
 	}
 
 	public function addCategory(){		

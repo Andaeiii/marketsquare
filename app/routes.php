@@ -12,8 +12,8 @@
 */
 
 Route::get('/', array('as'=>'homepage', 'uses'=>'PagesController@home'));
-
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Route::get('client/shop', 'PagesController@useTestShop');
 //////////////////////////////////////////////////////////////////////////////////////////////login and registration routes...
 
 Route::get('client/login', array('as'=>'login_client','uses'=>'AdminController@login'));
@@ -22,6 +22,7 @@ Route::get('client/forgotpassword', array('as'=>'forgot_password', 'uses'=>'Admi
 
 //verify account page...
 Route::get('client/verify', array('as'=>'verify_account', 'uses'=>'AdminController@verifyAcc'));
+Route::get('client/enter_code', array('as'=>'enter_verification_code', 'uses'=>'AdminController@enterverifycode'));
 
 
 //Register Routes.... 
