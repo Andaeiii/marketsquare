@@ -12,6 +12,8 @@
 */
 
 Route::get('/', array('as'=>'homepage', 'uses'=>'PagesController@home'));
+Route::get('demo', array('as'=>'oldhomepage', 'uses'=>'PagesController@demo'));
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Route::get('client/shop', 'PagesController@useTestShop');
 //////////////////////////////////////////////////////////////////////////////////////////////login and registration routes...
@@ -30,6 +32,8 @@ Route::post('client/login', 'AdminController@process_login');
 Route::post('client/register', 'AdminController@process_register');
 Route::post('client/verifyaccount', 'AdminController@verifyCode');		//verify account..
 Route::post('client/forgot_pass', 'AdminController@forgotPass');
+
+
 
 //reset password value pased on the final obj... 
 Route::get('client/reset_password/{code}', 'AdminController@resetPasswordVal');
@@ -61,8 +65,8 @@ Route::group(array('before'=>'auth'), function(){
 	Route::get('/client/profile/edit', array('as'=>'edit_profile', 'uses'=>'UserController@editprofile'));
 
 	Route::get('/client/products/new', array('as'=>'new_product', 'uses'=>'ItemsController@newitem'));
-	Route::get('/client/products/all', array('as'=>'all_items', 'uses'=>'ItemsController@allitems'));
-	Route::post('/client/products/{ct}/delete', 'ItemsController@deleteItem')->where('ct', '\d+'); //all categories..
+	Route::get('/client/products/all', array('as'=>'all_items', 'uses'=>'ItemsController@allitems'));	
+	Route::get('/client/products/{ct}/del', 'ItemsController@deleteItem')->where('ct', '\d+'); //all categories..
 	Route::post('/client/products/add', array('as'=>'createItem', 'uses'=>'ItemsController@createItem'));
 
 	Route::get('/client/category/new', array('as'=>'new_category', 'uses'=>'ItemsController@newcategory'));
@@ -73,4 +77,29 @@ Route::group(array('before'=>'auth'), function(){
 	Route::get('/client/reports', array('as'=>'all_categorys', 'uses'=>'UserController@reports'));
 	Route::get('/client/stats', array('as'=>'your_stats', 'uses'=>'UserController@stats'));
 
+	Route::post('/client/update', 'AdminController@updateuser');
+
+	Route::get('/client/all', 'AdminController@allclients');
+
+	//use this to clean the database of characters and terrible strings.... 
+	Route::get('/admin/cleandb', 'AdminController@updatepass');
+
 });
+
+
+
+////////////////////////////////////////////////////////////////////////page items...
+Route::post('/products/search', 'PagesController@showGridResults');
+Route::get('/category/{id}/filter/{item}', 'PagesController@showFilteredResults');
+
+Route::get('/products/{id}', 'PagesController@singleItem')->where('id', '\d+');
+Route::get('/coy/{id}/products', 'PagesController@coyItems')->where('id', '\d+');
+Route::get('/category/{id}/products', 'PagesController@catItems')->where('id', '\d+');
+
+Route::get('/cart/del/{id}', 'CartController@delItem')->where('id', '\d+');
+Route::get('/items/cart', 'PagesController@myCart'); 
+Route::post('/items/tocart', 'CartController@addItemsToCart')->where('id', '\d+');
+
+/////////////////////////////////////////////////////////////////////////////
+
+Route::get('/api/{item}/{amount}', 'ApiController@getProducts')->where('amount', '\d+');

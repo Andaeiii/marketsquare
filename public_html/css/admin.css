@@ -1,0 +1,35 @@
+/* CSS Document */
+
+.admintopbar div{background-color:#0099CC; padding:15px; color:#FFFFFF; font-size:13px;}
+
+
+.adminbody > div{min-height:900px;}
+.adminbody .lbar{padding:0px !important; background-image:url(/assets/vstripx.jpg); background-repeat:repeat-x; min-height:900px; }
+.adminbody .lbar a{background-color:#173142; display:block; padding:15px; margin-top:2px; color:#FFFFFF; font-size:13px; text-transform:capitalize;}
+.adminbody .lbar a:hover{background-color:#006699;}
+
+.dash-wel h1{text-transform:none; color:#006699; letter-spacing:-1px;}
+.user-info td:nth-child(odd){font-weight:bold;}
+.editwin{min-height:180px; border-left:dotted 1px #CBE4F3;}
+
+.jobs{padding:3px 15px; border:dotted 1px #eaeaea; min-height:100px; position:relative;}
+.jobs:hover{border:dotted 1px #CCCCCC; background-image:url(/assets/shstrip.jpg); background-repeat:repeat-x;}
+.jobs h1{padding:3px; margin:3px 0px; padding-left:0px; text-transform:none; font-size:17px; color:#006699;}
+
+.dt-close{display:block; position:absolute; top:10px; right:10px; font-size:11px; color:#bbbbbb;}
+.dt-close a{font-weight:bold; display:block; float:right; padding-left:4px; color:#bbbbbb; text-decoration:none;}
+.dt-close a:hover{color:#003366; text-decoration:none;}
+
+
+.job-lynks a{font-family:'quicksand' !important; letter-spacing:-2px; display:block; font-size:20px; text-transform:uppercase; color:#0099FF; float:left; padding:5px 10px;
+			}
+.job-lynks a:nth-child(even){border-left:dotted 1px #CCCCCC;}
+.job-lynks a:hover{color:#006699;}
+
+.ajloadr{position:fixed; display:block; border:solid 4px #BFDBE6; padding:15px 25px;  left:46%; top:30%; background-color:#FFFFFF; z-index:1000; border-radius:10px;}
+
+.box{display:block; width:100%; height:150px; background-color:#F4F4F4;}
+.chrts h1{margin-bottom:0px; padding-top:0px; padding-bottom:0px;}
+.chrts p{font-family:"Times New Roman", Times, serif; font-size:54px; color:#CCCCCC;}
+
+charttable h1{font-size:18px;}

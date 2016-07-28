@@ -46,7 +46,7 @@
                       <tr>
                         <th>id</th>
                         <th>Item</th>
-                        <th>Categorys(MAN Specifications)</th>
+                        <th>Category</th>
                         <th>Stock Amount</th>
                         <th>Selling Price </th> 
                         <th>Quoted Price</th>
@@ -70,16 +70,16 @@
                       <tr>
                         <td>{{ $ct }}</td>
                         <td>{{ $obj->name }}</td>
-                        <td>{{ $obj->category()->pluck('name') }}</td>
+                        <td title="{{$obj->category()->pluck('name')}}">{{ shortstr($obj->category()->pluck('name'), 20) }}</td>
                         <td>{{$obj->stock_count}}</td>
                         <td>{{ $obj->selling_price }}</td> 
                         <td>{{$obj->quoted_price}}</td>
                         <td>{{count(unserialize($obj->images))}} Images</td>
                         <td>{{date_format($obj->created_at, 'dS M, Y')}}</td>
                         <td>
-                        	<a href="/client/items/{{$ct}}/delete" title="Delete Item Completely"><img src="/assets/deletx.png" width="15" /></a> 
+                        	<a href="/client/products/{{$obj->id}}/del" title="Delete Item Completely"><img src="/assets/deletx.png" width="15" /></a> 
                         	&nbsp;&nbsp;
-                        	<a href="/client/items/{{$ct}}/edit" title="Edit Item details"><img src="/assets/dwn.png" width="15" /></a>
+                        	<a href="/client/products/{{$obj->id}}/edit" title="Edit Item details"><img src="/assets/dwn.png" width="15" /></a>
                         </td>
                       </tr>
 
@@ -94,7 +94,7 @@
                       <tr>
                         <th>id</th>
                         <th>Item</th>
-                        <th>Categorys(MAN Specifications)</th>
+                        <th>Category</th>
                         <th>Stock Amount</th>
                         <th>Selling Price </th> 
                         <th>Quoted Price</th>

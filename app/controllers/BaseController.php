@@ -21,6 +21,16 @@ class BaseController extends Controller {
 	}
 
 
+	public function removeFromArray($arr, $obj){
+		$r = array();
+	    foreach ($arr as $key => $value) {
+	    	if(strval($key) != $obj){
+	    		$r[$key] = $value;
+	    	}
+	    }
+	    return $r;
+	}
+
 	public function sendVerifyMail($config){  //$email, $code..
 
 		//koborize it..

@@ -20,14 +20,42 @@
 
 <!-- <h1>BuyNaija - The MarketSquare</h1>  -->
 <span style="align:center">The Buy Made-In-Nigeria Campaign<br/>Since 2012</span>
+<br/>
+		<marquee behaviour="scroll">Your One Stop E-Shopping Portal :: MADE in NIGERIA ONLY!
+WE SELL GOODS AND SERVICES TO OVER, * 170 Million Nigerians * 340 Million ECOWAS Citizens * Over 1 Billion Online Shoppers Worldwide…</marquee>
+<br/>
 
-</div>  <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More </a> </div> </div> </header> 
+</div>  <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More </a> 
+		
 
-<section class="bg-primary" id="about"> <div class="container"> <div class="row"> <div class="col-lg-10 col-lg-offset-1 text-center"> <h2 class="section-heading">Who we are!! </h2> <hr class="light"> <p class="text-faded"> 	
+
+</div> </div> 
+
+
+
+			<a class="registr" href="/client/register"><img src="/assets/regbtn.png"/></a>
+
+			
+</header> 
+
+
+
+
+<section class="bg-primary" id="about"> 
+
+<div class="container"> 
+
+<div class="row"> 
+
+<div class="col-lg-10 col-lg-offset-1 text-center"> <h2 class="section-heading">Who we are!! </h2> <hr class="light"> 
+<p class="text-faded"> 	
 BuyNaija.com…The Market Square, is a One-Stop global e-Commerce Platform of the BUY-NAIJA Project. The BUY-NAIJA Project [A Made-in-Nigeria Campaign] is a Multi-Stakeholders Public-Private-Sector Driven Platform domiciled with the Federal Ministry of Industry, Trade & Investment. BUY-NAIJA is primarily the driving platform of the Local Patronage Pillar of the National Industrial Revolution Plan [NIRP] of the Federal Government of Nigeria. 
 <br/>BuyNaija.com e-commerce platform is configured to provide a Comprehensive and Authentic Information/Data on   Made-in-Nigeria Products and Services to expand market frontiers for subscribers and making their products and services available to Buyers [Local and International]. 
 
-</p> <!-- <a class="page-scroll" href="#services" class="btn btn-default btn-xl">What we do!</a> --> </div> </div> </div> </section> 
+</p> <!-- <a class="page-scroll" href="#services" class="btn btn-default btn-xl">What we do!</a> --> </div> </div> </div> 
+
+
+</section> 
 
 
 

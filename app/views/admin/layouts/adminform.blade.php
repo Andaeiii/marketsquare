@@ -54,7 +54,7 @@
 	
 	<!-- BEGIN COPYRIGHT -->
 	<div class="copyright">
-		&copy;<?php echo date('Y'); ?> BuyNaija Limited
+		&copy;<?php echo date('Y'); ?> SeedConcept Limited
 	</div>
 	<!-- END COPYRIGHT -->
 	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->

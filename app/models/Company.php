@@ -24,22 +24,39 @@
 
 		//the rules... 
 		public static $rules = array(
+			
 			'fullname' 			=>	'required|min:5',
-			'email'				=>	'required|email|unique:companys,email',
-			'phone'				=>	'required|min:8',
+			//'email'			=>	'required|email|unique:companys,email',
+			//'phone'			=>	'required|min:8',
+
 			'address'			=>	'required',
 			'state_optn'		=>	'required',
-			'lga_optn'			=>	'required',
+			//'lga_optn'		=>	'required',
+			
 			'username'			=>	'required|unique:users,username|min:5',
 			'password'			=>	'required|min:5',
+
 			'confirm_password'	=>	'same:password',
-			'hearaboutus'		=>	'required'
+			//'hearaboutus'		=>	'required'
+
 		);
 
+		
 		//every company belongs to a user...
 		public function user(){
 			return $this->belongsTo('User', 'user_id');
 		}
+
+		
+		public function lga(){
+			return $this->belongsTo('Lga', 'lga_id');
+		}
+
+		
+		public function category(){
+			return $this->belongsTo('Category', 'category_id');
+		}
+
 
 
 	}

@@ -33,7 +33,7 @@
 
 
 
-		{{ Form::open(array('url'=>'client/register', 'class'=>'form-vertical login-form','method'=>'post')) }}
+		{{ Form::open(array('url'=>'client/update', 'class'=>'form-vertical login-form','method'=>'post')) }}
 
 					<div class="col-md-1">
 					</div>
@@ -46,7 +46,7 @@
 								<div class="controls">
 									<div class="input-icon left">
 										<i class="icon-font"></i>
-										<input class="form-control placeholder-no-fix {{ ($errors->first('fullname')) ? 'has-error'  :''}}" type="text" placeholder="...Enter Client fullname" name="fullname"/>
+										<input class="form-control placeholder-no-fix {{ ($errors->first('fullname')) ? 'has-error'  :''}}" type="text"  value="{{Auth::user()->entity()->pluck('name')}}" placeholder="...Enter Client fullname" name="fullname"/>
 									</div>
 								</div>
 							</div>
@@ -56,7 +56,7 @@
 								<div class="controls">
 									<div class="input-icon left">
 										<i class="icon-phone"></i>
-										<input class="form-control placeholder-no-fix {{ ($errors->first('phone')) ? 'has-error'  :''}}" type="text" placeholder="...Contact Phone number" name="phone"/>
+										<input class="form-control placeholder-no-fix {{ ($errors->first('phone')) ? 'has-error'  :''}}" type="text"  value="{{Auth::user()->entity()->pluck('phone')}}" placeholder="...Contact Phone number" name="phone"/>
 									</div>
 								</div>
 							</div>
@@ -82,7 +82,7 @@
 								<div class="controls">
 									<div class="input-icon left">
 										<i class="icon-ok"></i>
-										<input class="form-control placeholder-no-fix {{ ($errors->first('address')) ? 'has-error'  :''}}" type="text" placeholder="...Enter Office Address" name="address"/>
+										<input class="form-control placeholder-no-fix {{ ($errors->first('address')) ? 'has-error'  :''}}"  value="{{Auth::user()->entity()->pluck('address')}}" type="text" placeholder="...Enter Office Address" name="address"/>
 									</div>
 								</div>
 							</div>
@@ -108,6 +108,7 @@
 						</div>
 
 
+
 					</div>
 
 
@@ -123,7 +124,7 @@
 							<div class="controls">
 								<div class="input-icon left">
 									<i class="icon-envelope"></i>
-									<input class="form-control placeholder-no-fix {{ ($errors->first('email')) ? 'has-error'  :''}}" type="text" placeholder="...Valid Email Address" name="email"/>
+									<input class="form-control placeholder-no-fix {{ ($errors->first('email')) ? 'has-error'  :''}}" type="text" value="{{Auth::user()->entity()->pluck('email')}}" placeholder="...Valid Email Address" name="email"/>
 								</div>
 							</div>
 						</div>
@@ -159,19 +160,17 @@
 								</div>
 							</div>
 						</div>
+				
+					
+						<div class="col-md-4" style="padding-left:0px; margin-top:15px;">							
+							<input type="submit" id="register-submit-btn" class="btn green" value="update Profile"/>
+						</div>
 
 					</div>
 
-				
 
 			</div>
 
-				<div class="create-account row objx">
-
-					<div class="col-md-4">							
-						<input type="submit" id="register-submit-btn" class="btn green pull-right" value="update Profile"/>
-					</div>
-				</div>
 
 		{{ Form::close() }}
 

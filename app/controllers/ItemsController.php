@@ -27,13 +27,43 @@ class ItemsController extends BaseController {
 	}
 
 	public function allItems(){
+		$myproducts = Product::where('company_id', Auth::user()->id)->get();	//retrieve users products....
 		return View::make('admin.pages.allitems')
-				->with('allitems', Product::all())
+				->with('allitems', $myproducts)
 				->with('curitem', 'datatablex');
 	}
 
 	public function deleteItem($v){
-		echo $v;
+		
+		//echo $v; exit;
+		$p = @Product::find($v)->pluck('images');
+
+		//get images first... 
+		$imgs = unserialize($p);
+
+		//pr($imgs, true);
+		//delete all images... 
+		foreach($imgs as $g){
+			
+			$fl = public_path().DS.'uploads'.DS.'large'.DS.$g;
+			$sfl = public_path().DS.'uploads'.DS.'small'.DS.$g;
+			echo $fl . '<br/>';
+
+			if (File::exists($fl) && File::exists($sfl)) {
+				unlink($fl);	//delete large file...
+				unlink($sfl);	//delete small file... 
+
+				//delete product and go back to table... 
+				$msg = 'record deleted successfully.... ';
+			}else{
+				$msg = 'error deleting item......';
+			}
+
+		}
+
+		//Product::find($v)->delete();	
+		return Redirect::to('/client/products/all');		//
+
 	}
 
 	public function createItem(){
@@ -49,7 +79,9 @@ class ItemsController extends BaseController {
 			return Redirect::back()->withErrors($v)->withInput();
 
 		}else{
-			
+				
+				//pr(Input::all(), true);
+				
 				//upload the files to the database.... 
 				$count = 1;		
 				$upl = array();
@@ -84,6 +116,7 @@ class ItemsController extends BaseController {
 		   		$strr = htmlspecialchars(Input::get('prod_desc'));	//text from the editor... 
 
 		   		//echo 'the string ' . $str;
+
 
 
 		   		//exit;

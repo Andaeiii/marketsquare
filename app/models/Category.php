@@ -15,4 +15,8 @@
 			return $this->hasMany('Product', 'category_id');
 		}
 
+		public function company(){
+			return $this->hasMany('Company', 'category_id');
+		}
+
 	}

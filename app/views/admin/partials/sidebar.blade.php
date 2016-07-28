@@ -52,7 +52,7 @@
             </li>
 
 
-            @if(Auth::user()->type == 'admin')
+            @if(Auth::user()->type != 'admin')
 
             <li class="treeview">
               <a href="#">
@@ -60,7 +60,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="/client/new"><i class="fa fa-circle-o"></i> Add Clients</a></li>
+               <!--  <li><a href="/client/new"><i class="fa fa-circle-o"></i> Add Clients</a></li> -->
                 <li><a href="/client/all"><i class="fa fa-circle-o"></i> All Clients</a></li>
               </ul>
             </li>

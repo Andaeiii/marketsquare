@@ -1,0 +1,128 @@
+@charset "utf-8";
+
+/* CSS Document */
+@font-face { font-family:'quicksand'; src: url('/font/qb.ttf') format("truetype"); font-weight: light; font-weight: 300; font-style: normal; }
+@font-face { font-family:'geosans'; src: url('/font/geosans.ttf') format("truetype"); font-weight: light; font-weight: 300; font-style: normal; }
+@font-face { font-family:'quicksand'; src: url('/font/qb.ttf') format("truetype"); font-weight: light; font-weight: 300; font-style: normal; }
+
+*{font-family:Arial, Helvetica, sans-serif; font-size:12px;}
+h1 *, h1,h2,h3,h4{font-family:'arial' !important; letter-spacing:-0px; display:block;/*	text-align:center;*/ font-size:20px; text-transform:uppercase;color:#009933; }
+h1 *{display:inline !important;}
+h1.dotted{border-bottom:dotted 1px #cccccc; padding-bottom: 5px; margin-bottom:5px;}
+
+.clr{display:block; clear:both; margin:0px 2px;}
+
+body{background-color:#f5f5f5; background-repeat:repeat-x;}
+a:hover{text-decoration:none;}
+
+.topstrip{height:30px; background-color:#003300; padding-top:5px;}
+.topstrip .row > div *, .top-helpdsk{ font-size:11px;color:#ffffff !important; display:block; margin-top:5px; float: left}
+.topstrip a, .topstrip span{display:block; float:left; margin-right:5px;}
+
+.tophead{padding: 22px 0px;}
+.cart a{font-size:14px;}
+.cart span{padding-top:3px;}
+
+.searchbox input, .searchbox select{border:solid 2px #003300; }
+.searchbox .input-sm{border-radius:1px; padding: 17px 10px !important;}
+.searchbox button{padding:10px 10px; font-size:12px; color:#ffffff; background-color:#003300;}
+.searchbox .submitbtn{margin:0px !important; padding:0px !important;}
+
+/****************************************************/
+
+.patnerx{margin-top:30px; display:block;}
+
+/****************************************************/
+.banner{background-color:#ffffff; border:solid 1px #eaeaea;border-left:none; border-right:none;}
+.grid-bar{background-color:none;}
+
+.grid-bar .tp, .banner .tp{padding:10px 10px; background-color:#333; color:#ffffff;}
+.lynks ul{list-style:none; margin:0px !important; padding:0px !important;}
+.lynks li{ list-style:none;display:block; border-top:solid 1px #555555; border-bottom:none;}
+.lynks li a{background-color:#660032; color:#ffffff; text-transform: capitalize; display:block; padding:6px 4px;}
+.banner .lynks{border-bottom:solid 1px #cccccc;}
+.lynks li a:hover{background-color:#FF97CB; color:#000000;}
+
+.lynks .filters > li > a{background-color:#222222;}
+.lynks .filters > li > a:hover{background-color:#222222;color:#ffffff !important;}
+
+.lynks li ul li a{padding-left:15px;}
+
+.splx span{display:block; margin-right:2px; display:block; padding:1px; border:solid 1px #cccccc; float:left;}
+
+
+.items .box{display:block; margin:0px 5px 5px 0px; position:relative; width:212px; height:214px; border:solid 1px #d6d6d6; background-color: #ffffff; padding:0px; float:left;}
+.items .box:hover{border:solid 1px #cccccc;}
+.items .box h1{padding:10px 10px 0px 10px !important; padding-bottom:0px !impoertant; margin:0px !important; font-size:12px; font-weight: normal;;}
+.items .box .img{margin-top:0px; margin-bottom:0px;}
+
+.items .img{height:114px; overflow:hidden;}
+.items .img *{margin-top:0px !important; padding-top:0px !important;}
+.items .desc{padding:5px 12px; font-size:11px;}
+.items .price{position:absolute; bottom:5px; left:5px;  font-size:12px; color:#aaaaaa;}
+.items .cartit{display:block; position:absolute; bottom:10px; right:10px;}
+
+.coy{float:left;padding:5px 8px; margin:2px 5px; background-color:#ffffff; border: solid 1px #ffffff;}
+.coy:hover{opacity:0.7; border:solid 1px #cccccc;}
+
+.social a, .social span{font-size:18px; display: block; float: left; padding: 5px; color: #cccccc;}
+.social span{font-size:16px; color: #cccccc;}
+
+.qlinks li{list-style: none; }
+.qlinks ul{margin:0px; padding:0px;}
+
+.foot p{color:#ffffff; }
+.foot{background-color:#006633; padding-bottom:15px;  background-image:url(/assets/bg.jpg); background-position: bottom}
+.qlinks li a{display:block; color:#bbbbbb; padding:4px 6px}
+
+.copy{background-color:#003300; padding:6px; border-top:dotted 1px #ffffff;}
+.copy *{color:#ffffff; font-size:11px;}
+
+
+/****************************************************/
+
+.item-thmbs{padding:15px 0px; min-height:80px; width:100%; border-bottom: dotted 1px #cccccc;}
+.item-thmbs a{width:100px; height:75px; border: solid 1px #cccccc; float: left; margin:0px 10px 10px 0px;}
+.item-thmbs img{width:100px;}
+
+.item-img{border:solid 1px #cccccc;}
+.item-desc{line-height:20px; text-align: justify; margin-top:10px;}
+
+.byauthor h1{font-size:14px; text-transform: capitalize !important;}
+.item-related .box{margin-right:20px;}
+.soptn div{float:left<h1;}
+.soptn h1{ display: inline;}
+
+.soptn .obj{font-size:14px; font-weight:bold;}
+
+.pricediv{min-height:76px; background-color: #ffffff;}
+.pricediv a{display:block; float:right;}
+.pricediv a:hover{opacity:0.7;}
+.pricediv .val{color:#006633; display:block; float: left; font-size:35px; padding: 13px 0px 0px 13px}
+
+.soptn .tpx{font-weight:bold; font-size:14px; border: none; background-color:none !important; border-style: none !important;}
+
+.xtradetails{border:dotted 1px #cccccc; border-left:none; border-right: none; padding:10px 10px 10px 0px; min-height: 20px;
+margin-left:3px; margin-bottom:15px;}
+.xtradetails a, .xtradetails .subb{display:block; float:left; margin:2px; padding:4px 8px; border-radius:5px; color: #ffffff; background-color:#cc33dd;}
+
+.xtradetails a:hover{background-color:#993366;}
+
+.smallh1{font-size:14px; color: #333333; padding-top:10px;}
+
+.notify_msg{font-size:11px; color:#666666;}
+
+
+/*perri ellis.....*/
+
+
+.ads{border:solid 1px #aaaaaa; background-color: #ffffff; min-height:460px; margin-bottom: 10px; }
+.homeitems{padding:0px !important; margin-right: 0px !important; width:77% !important;}
+
+.flright{float:right; width:22%; padding:0px !important;}
+
+.bannerbar .row, .bannerbar .column{padding:0px !important; margin: 0px !important;}
+.bannerbar .lynks{padding-left: 0px; padding-right: 0px;}
+
+
+.bannerbar .banner{height:402px; background-color: #ffffff; padding-left:0px !important; padding-right:0px !important; border-left: dotted 1px #ffffff;}

@@ -39,4 +39,8 @@ class User extends Basemodel implements UserInterface, RemindableInterface {
 		}
 	}
 
+	public function products(){
+		return $this->hasMany('Product', 'user_id');
+	}
+
 }

@@ -4,8 +4,10 @@
 	class Product extends Basemodel{
 
 		protected $table = 'products';
+		
+		//set array of items that are fillable...
 		protected $fillable =  array('company_id', 'category_id', 'name', 'short_description', 'description', 'quoted_price', 
-					'selling_price', 'images');
+					'selling_price','prod_count', 'images');
 
 		public static $rules = array(
 			'prod_name' 	=> 'required',

@@ -165,8 +165,9 @@ class AdminController extends BaseController {
 					//save the user first... 
 					$u = new User;
 
-					$u->username = Input::get('username');
-					$u->password = Hash::make(Input::get('password'));
+					$u->username = $this->cleanTxt(strtolower(stripslashes(trim(Input::get('username')))));
+					$u->password = Hash::make($this->cleanTxt(strtolower(stripslashes(Input::get('password')))));
+					//the type could either be client or admin //users..
 					//the type could either be client or admin //users..
 					$u->type = 'client';
 
@@ -181,7 +182,7 @@ class AdminController extends BaseController {
 					$c->name = Input::get('fullname');
 					$c->address = Input::get('address');
 					$c->phone = Input::get('phone');
-					$c->email = Input::get('email');
+					$c->email = trim(stripslashes(Input::get('email')));
 					$c->category_id = Input::get('catg_optn');
 					$c->lga_id = Input::get('lga_optn');
 					$c->verified = false;
@@ -198,6 +199,57 @@ class AdminController extends BaseController {
 		}	//if statement... 
 
 	}
+
+
+	public function updateUser(){		
+		//get company object of the user....
+		$c = Company::findOrFail(Auth::user()->entity()->pluck('id'));
+
+		//remove object from array... 
+		Company::$rules = parent::removeFromArray(Company::$rules, 'email');
+		Company::$rules = parent::removeFromArray(Company::$rules, 'lga_optn');
+		Company::$rules = parent::removeFromArray(Company::$rules, 'state_optn');
+		Company::$rules = parent::removeFromArray(Company::$rules, 'hearaboutus');		
+		Company::$rules = parent::removeFromArray(Company::$rules, 'username');
+
+		//adjust a property...
+	//	pr(Company::$rules, true);
+
+
+		$v = Company::validate(Input::all());		
+
+		if($v->fails()){
+			  
+			  return Redirect::back()->withErrors($v)->withInput();
+
+		}else{
+			
+			//pr(Input::all(), true);
+			//update profile.... 			
+
+			$c->name = Input::get('fullname');
+			$c->address = Input::get('address');
+			$c->phone = Input::get('phone');
+
+			//$c->email = Input::get('email');
+			$c->category_id = Input::get('catg_optn');
+
+			//update user too.. 
+			Auth::user()->password = Hash::make(Input::get('password'));
+			Auth::user()->save();
+
+			//$c->verified = false; //verified remains unchanged in at this point.. 
+			$c->save();
+			
+			//echo 'saved'; exit;
+			return Redirect::to('/client/profile/edit');
+
+		}
+
+		
+	}
+
+
 
 
 	public function verifyAcc(){
@@ -245,6 +297,12 @@ class AdminController extends BaseController {
 		}
 	}
 
+	public function allclients(){
+		//echo 'pissed'; exit;
+		$coys = Company::all();
+		return View::make('admin.pages.allcoys')
+					->with('coys', $coys);
+	}
 
 
 	//function to retrieve Random Code for password retrieval......	
@@ -308,5 +366,27 @@ class AdminController extends BaseController {
 	}
 
 
+	public function updatePass(){
+		
+		$usr = User::all();
+
+		foreach($usr as $u){
+			//pr($u);
+			$un = strtolower(trim($u->username));
+			$u->username = $this->cleanTxt($un);
+			$u->password = Hash::make('password1');
+
+			if($u->save()){
+				echo $un .' :: saved - <br>';
+			}
+			
+		}
+	}
+
+	private function cleanTxt($string) {
+	   $string = str_replace(' ', '', trim($string)); // Replaces all spaces with hyphens.
+	   $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+	   return preg_replace('/-+/', '-', $string); // Replaces multiple hyphens with single one.
+	}
 
 }
